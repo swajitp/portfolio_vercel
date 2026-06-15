@@ -1,3 +1,6 @@
+Here’s the updated version with the Experience card fonts slightly bigger:
+
+```tsx
 "use client";
 
 import { ExternalLink } from "lucide-react";
@@ -83,24 +86,24 @@ export function ExperienceSection() {
             >
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                  <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
                     {exp.role}
                   </h3>
-                  <p className="text-sm text-muted-foreground mt-1">{exp.type}</p>
+                  <p className="text-base text-muted-foreground mt-1">{exp.type}</p>
                 </div>
-                <span className="text-sm text-muted-foreground">{exp.period}</span>
+                <span className="text-base text-muted-foreground">{exp.period}</span>
               </div>
 
               <div className="flex items-center gap-2 mb-4">
-                <span className="text-primary font-medium">{exp.company}</span>
-                <ExternalLink className="w-3 h-3 text-primary" />
+                <span className="text-lg text-primary font-medium">{exp.company}</span>
+                <ExternalLink className="w-4 h-4 text-primary" />
               </div>
 
               <ul className="space-y-2">
                 {exp.highlights.map((highlight, i) => (
                   <li
                     key={i}
-                    className="text-sm text-muted-foreground leading-relaxed flex items-start gap-2"
+                    className="text-base text-muted-foreground leading-relaxed flex items-start gap-2"
                   >
                     <span className="text-primary mt-1.5">•</span>
                     {highlight}
@@ -114,3 +117,4 @@ export function ExperienceSection() {
     </section>
   );
 }
+```
