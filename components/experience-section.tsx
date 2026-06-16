@@ -4,6 +4,7 @@ import { ExternalLink } from "lucide-react";
 
 interface ExperienceItem {
   company: string;
+  companyUrl: string;
   role: string;
   period: string;
   type: string;
@@ -15,6 +16,7 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
   {
     company: "Wooqer",
+    companyUrl: "https://www.wooqer.com/",
     role: "Customer Success Operations Lead | Program Manager",
     period: "2022 - 2025",
     type: "SaaS, B2B Workflow Automation",
@@ -30,6 +32,7 @@ const experiences: ExperienceItem[] = [
   },
   {
     company: "Intellipaat",
+    companyUrl: "https://intellipaat.com/",
     role: "Head of Operations (Customer Success & Post-Sales)",
     period: "2021 - 2022",
     type: "EdTech, Online Learning Platform",
@@ -44,6 +47,7 @@ const experiences: ExperienceItem[] = [
   },
   {
     company: "Intellipaat",
+    companyUrl: "https://intellipaat.com/",
     role: "Manager, Customer Operations & Technical Support",
     period: "2020 - 2021",
     type: "EdTech, Online Learning Platform",
@@ -57,6 +61,7 @@ const experiences: ExperienceItem[] = [
   },
   {
     company: "Byju's",
+    companyUrl: "https://byjus.com/",
     role: "Product and Retention Expert",
     period: "2018 - 2019",
     type: "EdTech, Online Learning Platform",
@@ -102,8 +107,15 @@ export function ExperienceSection() {
               </div>
 
               <div className="flex flex-wrap items-center gap-2 mb-4">
-                <span className="text-lg text-primary font-medium">{exp.company}</span>
-                <ExternalLink className="w-4 h-4 text-primary" />
+                <a
+                  href={exp.companyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-lg text-primary font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+                >
+                  {exp.company}
+                  <ExternalLink className="w-4 h-4" />
+                </a>
                 <span className="rounded-full border border-border px-2.5 py-1 text-[11px] text-muted-foreground">
                   {exp.context}
                 </span>
