@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const navItems = [
   { label: "Work", href: "#case-studies" },
@@ -15,9 +15,23 @@ const navItems = [
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (!menuRef.current?.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
+  }, [isMenuOpen]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
+    <header ref={menuRef} className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
       <nav className="max-w-6xl mx-auto flex items-center justify-between">
         <Link
           href="/"
@@ -62,7 +76,7 @@ export function Header() {
       </nav>
 
       {isMenuOpen ? (
-        <div className="md:hidden mt-3 max-w-6xl mx-auto rounded-2xl border border-border bg-card/95 backdrop-blur-md shadow-lg shadow-black/20">
+        <div className="md:hidden mt-3 w-full rounded-2xl border border-border bg-card/95 backdrop-blur-md shadow-lg shadow-black/20">
           <div className="flex flex-col p-2">
             {navItems.map((item) => (
               <Link

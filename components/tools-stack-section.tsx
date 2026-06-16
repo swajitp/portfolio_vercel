@@ -22,7 +22,7 @@ export function ToolsStackSection() {
     <section className="py-16 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="mb-8">
-          <span className="text-sm text-muted-foreground tracking-wider uppercase border border-border rounded-full px-4 py-1.5">
+          <span className="text-[11px] text-muted-foreground tracking-wider uppercase border border-border rounded-full px-4 py-1.5">
             STACK & TOOLS
           </span>
         </div>

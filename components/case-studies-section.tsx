@@ -106,7 +106,7 @@ export function CaseStudiesSection() {
               </div>
               <a
                 href={study.href}
-                className="mt-3 inline-flex w-fit text-sm text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+                className="mt-3 inline-flex w-fit text-[13px] text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
               >
                 View Project →
               </a>
