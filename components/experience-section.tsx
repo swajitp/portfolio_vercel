@@ -1,6 +1,3 @@
-Here’s the updated version with the Experience card fonts slightly bigger:
-
-```tsx
 "use client";
 
 import { ExternalLink } from "lucide-react";
@@ -117,4 +114,3 @@ export function ExperienceSection() {
     </section>
   );
 }
-```
