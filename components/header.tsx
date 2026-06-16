@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 const navItems = [
+  { label: "Work", href: "#case-studies" },
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
   { label: "Education", href: "#education" },
@@ -22,7 +23,7 @@ export function Header() {
           Swajit.
         </Link>
 
-        <div className="hidden md:flex items-center gap-1 bg-card/80 backdrop-blur-md rounded-full px-2 py-1.5 border border-border">
+        <div className="hidden md:flex items-center gap-1 bg-card/90 backdrop-blur-md rounded-full px-2 py-1.5 border border-border shadow-lg shadow-black/20">
           {navItems.map((item) => (
             <Link
               key={item.href}

@@ -49,16 +49,16 @@ export function EducationSection() {
                 </div>
                 <div className="flex-1">
                   <div className="flex items-start justify-between gap-4">
-                    <h3 className="text-lg font-semibold text-foreground">
+                    <h3 className="text-xl font-semibold text-foreground">
                       {edu.degree}
                     </h3>
-                    <span className="text-sm text-muted-foreground whitespace-nowrap">
+                    <span className="text-base text-muted-foreground whitespace-nowrap">
                       {edu.period}
                     </span>
                   </div>
-                  <p className="text-muted-foreground mt-1">{edu.school}</p>
-                  <div className="flex items-center gap-1.5 mt-2 text-sm text-muted-foreground">
-                    <MapPin className="w-3.5 h-3.5" />
+                  <p className="text-base text-muted-foreground mt-1">{edu.school}</p>
+                  <div className="flex items-center gap-1.5 mt-2 text-base text-muted-foreground">
+                    <MapPin className="w-4 h-4" />
                     {edu.location}
                   </div>
                 </div>

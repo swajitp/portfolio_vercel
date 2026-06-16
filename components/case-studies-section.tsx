@@ -75,7 +75,7 @@ export function CaseStudiesSection() {
                 {study.title}
               </h3>
 
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+              <p className="text-muted-foreground text-base leading-relaxed mb-6">
                 {study.description}
               </p>
 
@@ -83,7 +83,7 @@ export function CaseStudiesSection() {
                 {study.metrics.map((metric) => (
                   <span
                     key={metric}
-                    className="px-3 py-1 text-xs font-medium text-primary bg-primary/10 rounded-full"
+                    className="px-3 py-1.5 text-sm font-semibold text-primary bg-primary/10 rounded-full"
                   >
                     {metric}
                   </span>
@@ -94,7 +94,7 @@ export function CaseStudiesSection() {
                 {study.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-xs text-muted-foreground"
+                    className="text-sm text-muted-foreground"
                   >
                     #{tag}
                   </span>

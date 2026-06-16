@@ -23,8 +23,9 @@ export function ContactSection() {
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-6">
             Let&apos;s Connect
           </h2>
-          <p className="text-muted-foreground mt-2 max-w-xl">
-            Open to discussing customer success strategy, operations challenges, or new opportunities.
+          <p className="text-lg text-muted-foreground mt-3 max-w-2xl leading-relaxed">
+            Open to customer success operations, RevOps, post-sales strategy, and
+            operations transformation roles where scalable systems matter.
           </p>
         </div>
 
@@ -32,7 +33,7 @@ export function ContactSection() {
           <div className="space-y-6">
             <div className="bg-background border border-border rounded-2xl p-6">
               <div className="flex items-center justify-between mb-2">
-                <p className="text-sm text-muted-foreground">Email</p>
+                <p className="text-base text-muted-foreground">Email</p>
                 <Button
                   variant="ghost"
                   size="sm"
@@ -54,7 +55,7 @@ export function ContactSection() {
               </div>
               <a
                 href="mailto:swajit.patwari@gmail.com"
-                className="text-lg text-foreground hover:text-primary transition-colors flex items-center gap-2"
+                className="text-xl text-foreground hover:text-primary transition-colors flex items-center gap-2"
               >
                 <Mail className="h-5 w-5" />
                 swajit.patwari@gmail.com
@@ -69,8 +70,8 @@ export function ContactSection() {
                 className="bg-background border border-border rounded-2xl p-6 hover:border-primary/50 transition-colors group"
               >
                 <Linkedin className="h-6 w-6 text-muted-foreground group-hover:text-primary transition-colors mb-3" />
-                <p className="text-sm text-muted-foreground">LinkedIn</p>
-                <p className="text-foreground">@swajit</p>
+                <p className="text-base text-muted-foreground">LinkedIn</p>
+                <p className="text-lg text-foreground">@swajit</p>
               </a>
 
               <a
@@ -78,19 +79,20 @@ export function ContactSection() {
                 className="bg-background border border-border rounded-2xl p-6 hover:border-primary/50 transition-colors group"
               >
                 <Phone className="h-6 w-6 text-muted-foreground group-hover:text-primary transition-colors mb-3" />
-                <p className="text-sm text-muted-foreground">Phone</p>
-                <p className="text-foreground">+1 604 735 8611</p>
+                <p className="text-base text-muted-foreground">Phone</p>
+                <p className="text-lg text-foreground">+1 604 735 8611</p>
               </a>
             </div>
           </div>
 
           <div className="flex items-center justify-center">
             <div className="text-center">
-              <p className="text-2xl font-bold text-foreground mb-4">
-                Ready to chat?
+              <p className="text-3xl font-bold text-foreground mb-4">
+                Building a stronger post-sales engine?
               </p>
-              <p className="text-muted-foreground mb-6 max-w-sm">
-                Whether you have a question or just want to say hi, I&apos;ll do my best to get back to you.
+              <p className="text-lg text-muted-foreground mb-6 max-w-sm leading-relaxed">
+                I&apos;d be glad to talk through CS operations, retention systems,
+                support workflows, or roles where those problems are central.
               </p>
               <Button
                 asChild

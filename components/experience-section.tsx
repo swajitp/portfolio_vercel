@@ -7,6 +7,7 @@ interface ExperienceItem {
   role: string;
   period: string;
   type: string;
+  metrics: string[];
   highlights: string[];
 }
 
@@ -16,6 +17,7 @@ const experiences: ExperienceItem[] = [
     role: "Customer Success Operations Lead | Program Manager",
     period: "2022 - 2025",
     type: "SaaS, B2B Workflow Automation",
+    metrics: ["$2M ARR", "20%+ MoM growth", "60 to 30 day payment cycle"],
     highlights: [
       "Owned CS Operations across 8 pods, directly managing Helpdesk, Skilling, and Onboarding",
       "Built AI-assisted churn-risk scoring identifying 2/3 potential churns before notice",
@@ -29,6 +31,7 @@ const experiences: ExperienceItem[] = [
     role: "Head of Operations (Customer Success & Post-Sales)",
     period: "2021 - 2022",
     type: "EdTech, Online Learning Platform",
+    metrics: ["~90 member org", "80%+ SLA adherence", "USD 20k-25k monthly revenue"],
     highlights: [
       "Led Operations, Learning Management, and Support functions scaling team to ~90 members",
       "Built SOPs, SLAs, and 20+ quality checkpoints maintaining 80%+ SLA adherence",
@@ -41,6 +44,7 @@ const experiences: ExperienceItem[] = [
     role: "Manager, Customer Operations & Technical Support",
     period: "2020 - 2021",
     type: "EdTech, Online Learning Platform",
+    metrics: ["50+ team members", "40-45% NPS", "12-15x review growth"],
     highlights: [
       "Led Operations and Technical Support teams of 50+ members",
       "Maintained NPS of 40-45% and trainer satisfaction above 95%",
@@ -52,6 +56,7 @@ const experiences: ExperienceItem[] = [
     role: "Product and Retention Expert",
     period: "2018 - 2019",
     type: "EdTech, Online Learning Platform",
+    metrics: ["400-500 trial users/year", "~85% retention", "K12 pilot launch"],
     highlights: [
       "Managed retention for 400-500 trial users/year maintaining ~85% retention",
       "Core team member for Disney-Byju's and K12 one-on-one pilots",
@@ -65,7 +70,7 @@ export function ExperienceSection() {
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
           <span className="text-sm text-muted-foreground tracking-wider uppercase border border-border rounded-full px-4 py-1.5">
-            PORTFOLIO
+            EXPERIENCE
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-6">
             Work Experience
@@ -96,7 +101,18 @@ export function ExperienceSection() {
                 <ExternalLink className="w-4 h-4 text-primary" />
               </div>
 
-              <ul className="space-y-2">
+              <div className="flex flex-wrap gap-2 mb-5">
+                {exp.metrics.map((metric) => (
+                  <span
+                    key={metric}
+                    className="px-3 py-1.5 text-sm font-semibold text-primary bg-primary/10 rounded-full"
+                  >
+                    {metric}
+                  </span>
+                ))}
+              </div>
+
+              <ul className="space-y-3">
                 {exp.highlights.map((highlight, i) => (
                   <li
                     key={i}
