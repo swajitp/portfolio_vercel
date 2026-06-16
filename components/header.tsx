@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
+import { useState } from "react";
 
 const navItems = [
   { label: "Work", href: "#case-studies" },
@@ -13,6 +14,8 @@ const navItems = [
 ];
 
 export function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
       <nav className="max-w-6xl mx-auto flex items-center justify-between">
@@ -35,16 +38,45 @@ export function Header() {
           ))}
         </div>
 
-        <Button
-          asChild
-          className="bg-card hover:bg-secondary text-foreground border border-border rounded-full"
-        >
-          <a href="mailto:swajit.patwari@gmail.com">
-            Hire Me
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </a>
-        </Button>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isMenuOpen}
+            onClick={() => setIsMenuOpen((open) => !open)}
+            className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-foreground hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
+            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+
+          <Button
+            asChild
+            className="bg-card hover:bg-secondary text-foreground border border-border rounded-full"
+          >
+            <a href="mailto:swajit.patwari@gmail.com">
+              Hire Me
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
+          </Button>
+        </div>
       </nav>
+
+      {isMenuOpen ? (
+        <div className="md:hidden mt-3 max-w-6xl mx-auto rounded-2xl border border-border bg-card/95 backdrop-blur-md shadow-lg shadow-black/20">
+          <div className="flex flex-col p-2">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsMenuOpen(false)}
+                className="flex min-h-11 items-center rounded-xl px-4 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      ) : null}
     </header>
   );
 }

@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 import { MapPin, ArrowRight } from "lucide-react";
 
 const stats = [
-  { value: "7+", label: "Years across CS and ops" },
-  { value: "$2M", label: "ARR portfolio owned" },
-  { value: "90+", label: "Ops and support team scale" },
+  { value: "7+", label: "Years in CS & RevOps" },
+  { value: "$2M", label: "ARR Portfolio Owned" },
+  { value: "90+", label: "Team Members Led" },
 ];
 
 const skills = [

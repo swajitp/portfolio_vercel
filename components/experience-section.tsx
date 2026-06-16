@@ -7,6 +7,7 @@ interface ExperienceItem {
   role: string;
   period: string;
   type: string;
+  context: string;
   metrics: string[];
   highlights: string[];
 }
@@ -17,6 +18,7 @@ const experiences: ExperienceItem[] = [
     role: "Customer Success Operations Lead | Program Manager",
     period: "2022 - 2025",
     type: "SaaS, B2B Workflow Automation",
+    context: "B2B SaaS · India / MENA / US",
     metrics: ["$2M ARR", "20%+ MoM growth", "60 to 30 day payment cycle"],
     highlights: [
       "Owned CS Operations across 8 pods, directly managing Helpdesk, Skilling, and Onboarding",
@@ -31,6 +33,7 @@ const experiences: ExperienceItem[] = [
     role: "Head of Operations (Customer Success & Post-Sales)",
     period: "2021 - 2022",
     type: "EdTech, Online Learning Platform",
+    context: "EdTech · India",
     metrics: ["~90 member org", "80%+ SLA adherence", "USD 20k-25k monthly revenue"],
     highlights: [
       "Led Operations, Learning Management, and Support functions scaling team to ~90 members",
@@ -44,6 +47,7 @@ const experiences: ExperienceItem[] = [
     role: "Manager, Customer Operations & Technical Support",
     period: "2020 - 2021",
     type: "EdTech, Online Learning Platform",
+    context: "EdTech · India",
     metrics: ["50+ team members", "40-45% NPS", "12-15x review growth"],
     highlights: [
       "Led Operations and Technical Support teams of 50+ members",
@@ -56,6 +60,7 @@ const experiences: ExperienceItem[] = [
     role: "Product and Retention Expert",
     period: "2018 - 2019",
     type: "EdTech, Online Learning Platform",
+    context: "EdTech · India",
     metrics: ["400-500 trial users/year", "~85% retention", "K12 pilot launch"],
     highlights: [
       "Managed retention for 400-500 trial users/year maintaining ~85% retention",
@@ -96,9 +101,12 @@ export function ExperienceSection() {
                 <span className="text-base text-muted-foreground">{exp.period}</span>
               </div>
 
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex flex-wrap items-center gap-2 mb-4">
                 <span className="text-lg text-primary font-medium">{exp.company}</span>
                 <ExternalLink className="w-4 h-4 text-primary" />
+                <span className="rounded-full border border-border px-2.5 py-1 text-[11px] text-muted-foreground">
+                  {exp.context}
+                </span>
               </div>
 
               <div className="flex flex-wrap gap-2 mb-5">

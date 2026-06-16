@@ -9,6 +9,7 @@ const caseStudies = [
       "Built a live Customer Success dashboard tracking MAU/WAU, product engagement, and NPS across the full portfolio.",
     metrics: ["0.5% NRR lift", "1% retention improvement", "Real-time visibility"],
     tags: ["Dashboard", "KPIs", "Analytics"],
+    href: "#",
   },
   {
     icon: AlertTriangle,
@@ -18,6 +19,7 @@ const caseStudies = [
       "Designed an AI-assisted churn-risk scoring system using 15+ checkpoints to identify at-risk accounts before notice.",
     metrics: ["2 of 3 churns predicted", "Early warning system", "Proactive outreach"],
     tags: ["Automation", "AI", "Retention"],
+    href: "#",
   },
   {
     icon: Star,
@@ -27,6 +29,7 @@ const caseStudies = [
       "Transformed support operations by shifting from efficiency metrics to CSAT-focused performance goals.",
     metrics: ["12-15x review increase", "NPS 40-45%", "95%+ trainer satisfaction"],
     tags: ["Support Ops", "CSAT", "Reviews"],
+    href: "#",
   },
   {
     icon: Clock,
@@ -36,12 +39,13 @@ const caseStudies = [
       "Structured RevOps follow-up workflows and billing processes to accelerate payment collection cycles.",
     metrics: ["60+ to 30 days", "50% cycle reduction", "Improved cash flow"],
     tags: ["RevOps", "Billing", "Process"],
+    href: "#",
   },
 ];
 
 export function CaseStudiesSection() {
   return (
-    <section id="case-studies" className="py-24 px-6">
+    <section id="case-studies" className="py-24 px-6 bg-secondary/20">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
           <span className="text-sm text-muted-foreground tracking-wider uppercase border border-border rounded-full px-4 py-1.5">
@@ -60,7 +64,7 @@ export function CaseStudiesSection() {
           {caseStudies.map((study) => (
             <div
               key={study.title}
-              className="group bg-card border border-border rounded-2xl p-8 hover:border-primary/50 transition-all"
+              className="group flex h-full flex-col bg-card border border-border rounded-2xl p-8 hover:border-primary/50 transition-all"
             >
               <div className="flex items-start justify-between mb-6">
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -100,6 +104,12 @@ export function CaseStudiesSection() {
                   </span>
                 ))}
               </div>
+              <a
+                href={study.href}
+                className="mt-3 inline-flex w-fit text-sm text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+              >
+                View Project →
+              </a>
             </div>
           ))}
         </div>

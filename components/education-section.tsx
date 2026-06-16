@@ -4,6 +4,7 @@ import { GraduationCap, MapPin } from "lucide-react";
 
 interface EducationItem {
   degree: string;
+  descriptor?: string;
   school: string;
   location: string;
   period: string;
@@ -12,9 +13,10 @@ interface EducationItem {
 const education: EducationItem[] = [
   {
     degree: "MBA | Business Analytics and Digital Transformation",
+    descriptor: "Concentration: Business Analytics & Digital Transformation",
     school: "Simon Fraser University, Beedie School of Business",
     location: "Vancouver, Canada",
-    period: "2025 - 2026",
+    period: "2025 – 2026 (Graduating May 2026)",
   },
   {
     degree: "Bachelor of Engineering | Mechanical Engineering",
@@ -26,7 +28,7 @@ const education: EducationItem[] = [
 
 export function EducationSection() {
   return (
-    <section id="education" className="py-20 px-6">
+    <section id="education" className="py-20 px-6 bg-secondary/20">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
           <span className="text-sm text-muted-foreground tracking-wider uppercase border border-border rounded-full px-4 py-1.5">
@@ -56,6 +58,11 @@ export function EducationSection() {
                       {edu.period}
                     </span>
                   </div>
+                  {edu.descriptor ? (
+                    <p className="text-base text-muted-foreground mt-1">
+                      {edu.descriptor}
+                    </p>
+                  ) : null}
                   <p className="text-base text-muted-foreground mt-1">{edu.school}</p>
                   <div className="flex items-center gap-1.5 mt-2 text-base text-muted-foreground">
                     <MapPin className="w-4 h-4" />
