@@ -6,7 +6,7 @@ import { MapPin, ArrowRight } from "lucide-react";
 
 const stats = [
   { value: "7+", label: "Years in CS & RevOps" },
-  { value: "$2M", label: "ARR Portfolio Owned" },
+  { value: "$4M", label: "ARR Portfolio Owned" },
   { value: "90+", label: "Team Members Led" },
 ];
 

@@ -7,7 +7,7 @@ const journey = [
     company: "Wooqer",
     period: "2022 - 2025",
     description:
-      "Owned CS Operations across 8 pods. Built dashboards, churn-risk systems, and led a $2M ARR portfolio with 20%+ MoM adoption growth.",
+      "Owned CS Operations across 8 pods. Built dashboards, churn-risk systems, and led a $4M ARR portfolio with 20%+ MoM adoption growth.",
     highlight: "SaaS Operations & Analytics",
   },
   {
