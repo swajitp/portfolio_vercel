@@ -6,7 +6,7 @@ const competencies = [
     title: "Customer Success Strategy",
     description:
       "Customer lifecycle design, onboarding programs, health scoring, and churn prevention systems.",
-    evidence: "Built health scoring and lifecycle programs managing $4M ARR",
+    evidence: "Built health scoring and lifecycle programs managing $6M ARR",
   },
   {
     icon: BarChart3,
