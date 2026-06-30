@@ -1,4 +1,5 @@
 import { Eye, Zap, Settings, Users, TrendingUp } from "lucide-react";
+import { SectionEyebrow } from "@/components/section-eyebrow";
 
 const principles = [
   {
@@ -33,9 +34,7 @@ export function PrinciplesSection() {
     <section className="py-24 px-6 bg-card">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
-          <span className="text-sm text-muted-foreground tracking-wider uppercase border border-border rounded-full px-4 py-1.5 bg-background">
-            HOW I WORK
-          </span>
+          <SectionEyebrow className="bg-background">HOW I WORK</SectionEyebrow>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-6">
             Operating Principles
           </h2>
@@ -50,7 +49,7 @@ export function PrinciplesSection() {
               key={principle.title}
               className="group text-center lg:text-left"
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto lg:mx-0 mb-4 group-hover:bg-primary/20 transition-colors">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 border border-white/5 flex items-center justify-center mx-auto lg:mx-0 mb-4 group-hover:bg-primary/20 transition-colors">
                 <principle.icon className="w-6 h-6 text-primary" />
               </div>
               <div className="text-xs text-muted-foreground mb-2">0{index + 1}</div>

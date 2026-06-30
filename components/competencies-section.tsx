@@ -1,4 +1,6 @@
 import { Users, BarChart3, Zap, Target } from "lucide-react";
+import { InfoCard } from "@/components/info-card";
+import { SectionEyebrow } from "@/components/section-eyebrow";
 
 const competencies = [
   {
@@ -36,9 +38,7 @@ export function CompetenciesSection() {
     <section id="skills" className="py-20 px-6 bg-secondary/20">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
-          <span className="text-sm text-muted-foreground tracking-wider uppercase border border-border rounded-full px-4 py-1.5">
-            COMPETENCIES
-          </span>
+          <SectionEyebrow>COMPETENCIES</SectionEyebrow>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-6">
             Areas of Expertise
           </h2>
@@ -46,23 +46,16 @@ export function CompetenciesSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {competencies.map((item) => (
-            <div
+            <InfoCard
               key={item.title}
-              className="bg-card border border-border rounded-2xl p-6 hover:border-primary/50 transition-colors"
+              icon={<item.icon className="w-6 h-6 text-primary" />}
+              title={item.title}
+              description={item.description}
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                <item.icon className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">
-                {item.title}
-              </h3>
-              <p className="text-base text-muted-foreground leading-relaxed">
-                {item.description}
-              </p>
               <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
                 {item.evidence}
               </p>
-            </div>
+            </InfoCard>
           ))}
         </div>
       </div>

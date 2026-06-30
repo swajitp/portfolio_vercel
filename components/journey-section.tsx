@@ -1,4 +1,5 @@
 import { Briefcase, GraduationCap } from "lucide-react";
+import { SectionEyebrow } from "@/components/section-eyebrow";
 
 const journey = [
   {
@@ -53,9 +54,7 @@ export function JourneySection() {
     <section id="experience" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
-          <span className="text-sm text-muted-foreground tracking-wider uppercase border border-border rounded-full px-4 py-1.5">
-            MY JOURNEY
-          </span>
+          <SectionEyebrow>MY JOURNEY</SectionEyebrow>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-6">
             Career Timeline
           </h2>
@@ -87,7 +86,7 @@ export function JourneySection() {
                     } max-w-lg`}
                   >
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 border border-white/5 flex items-center justify-center">
                         {item.type === "education" ? (
                           <GraduationCap className="w-5 h-5 text-primary" />
                         ) : (

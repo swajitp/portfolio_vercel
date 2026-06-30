@@ -1,6 +1,7 @@
 "use client";
 
 import { GraduationCap, MapPin } from "lucide-react";
+import { SectionEyebrow } from "@/components/section-eyebrow";
 
 interface EducationItem {
   degree: string;
@@ -29,9 +30,7 @@ export function EducationSection() {
     <section id="education" className="py-20 px-6 bg-secondary/20">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
-          <span className="text-sm text-muted-foreground tracking-wider uppercase border border-border rounded-full px-4 py-1.5">
-            EDUCATION
-          </span>
+          <SectionEyebrow>EDUCATION</SectionEyebrow>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-6">
             Academic Background
           </h2>
@@ -44,7 +43,7 @@ export function EducationSection() {
               className="bg-card border border-border rounded-2xl p-6 hover:border-primary/50 transition-colors"
             >
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 border border-white/5 flex items-center justify-center flex-shrink-0">
                   <GraduationCap className="w-6 h-6 text-primary" />
                 </div>
                 <div className="flex-1">
@@ -52,7 +51,7 @@ export function EducationSection() {
                     <h3 className="text-xl font-semibold text-foreground">
                       {edu.degree}
                     </h3>
-                    <span className="text-base text-muted-foreground whitespace-nowrap">
+                    <span className="text-base text-muted-foreground-subtle whitespace-nowrap">
                       {edu.period}
                     </span>
                   </div>

@@ -2,15 +2,14 @@
 
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SectionEyebrow } from "@/components/section-eyebrow";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-20 px-6">
+    <section id="contact" className="py-28 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
-          <span className="text-sm text-muted-foreground tracking-wider uppercase border border-border rounded-full px-4 py-1.5">
-            CONTACT
-          </span>
+          <SectionEyebrow>CONTACT</SectionEyebrow>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-6">
             Let&apos;s Connect
           </h2>

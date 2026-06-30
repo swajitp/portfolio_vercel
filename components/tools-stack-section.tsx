@@ -1,3 +1,6 @@
+import { SectionEyebrow } from "@/components/section-eyebrow";
+import { Badge } from "@/components/ui/badge";
+
 const toolGroups = [
   {
     category: "CRM & CS Platforms",
@@ -19,28 +22,23 @@ const toolGroups = [
 
 export function ToolsStackSection() {
   return (
-    <section className="py-16 px-6">
+    <section className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="mb-8">
-          <span className="text-[11px] text-muted-foreground tracking-wider uppercase border border-border rounded-full px-4 py-1.5">
-            STACK & TOOLS
-          </span>
+          <SectionEyebrow>STACK & TOOLS</SectionEyebrow>
         </div>
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {toolGroups.map((group) => (
             <div key={group.category} className="space-y-3">
-              <p className="text-xs uppercase tracking-wider text-muted-foreground">
+              <p className="text-xs uppercase tracking-wider text-muted-foreground-subtle">
                 {group.category}
               </p>
               <div className="flex flex-wrap gap-2">
                 {group.tools.map((tool) => (
-                  <span
-                    key={tool}
-                    className="rounded-full border border-border bg-secondary/50 px-3 py-1.5 text-xs text-foreground"
-                  >
+                  <Badge key={tool} variant="tag">
                     {tool}
-                  </span>
+                  </Badge>
                 ))}
               </div>
             </div>

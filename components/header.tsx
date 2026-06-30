@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
 const navItems = [
   { label: "Work", href: "#case-studies" },
@@ -15,6 +16,7 @@ const navItems = [
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeHref, setActiveHref] = useState("#case-studies");
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -29,6 +31,33 @@ export function Header() {
     document.addEventListener("pointerdown", handlePointerDown);
     return () => document.removeEventListener("pointerdown", handlePointerDown);
   }, [isMenuOpen]);
+
+  useEffect(() => {
+    const sections = navItems
+      .map((item) => document.querySelector(item.href))
+      .filter((section): section is Element => Boolean(section));
+
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visibleEntry?.target.id) {
+          setActiveHref(`#${visibleEntry.target.id}`);
+        }
+      },
+      {
+        rootMargin: "-30% 0px -55% 0px",
+        threshold: [0.12, 0.35, 0.6],
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <header ref={menuRef} className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
@@ -45,7 +74,10 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-secondary"
+              className={cn(
+                "px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-secondary",
+                activeHref === item.href && "bg-secondary text-foreground",
+              )}
             >
               {item.label}
             </Link>
@@ -75,8 +107,14 @@ export function Header() {
         </div>
       </nav>
 
-      {isMenuOpen ? (
-        <div className="md:hidden mt-3 w-full rounded-2xl border border-border bg-card/95 backdrop-blur-md shadow-lg shadow-black/20">
+      <div
+        className={cn(
+          "md:hidden mt-3 w-full overflow-hidden rounded-2xl border border-border bg-card/95 backdrop-blur-md shadow-lg shadow-black/20 transition-all duration-200 ease-out",
+          isMenuOpen
+            ? "max-h-80 translate-y-0 opacity-100"
+            : "pointer-events-none max-h-0 -translate-y-2 opacity-0",
+        )}
+      >
           <div className="flex flex-col p-2">
             {navItems.map((item) => (
               <Link
@@ -90,7 +128,6 @@ export function Header() {
             ))}
           </div>
         </div>
-      ) : null}
     </header>
   );
 }

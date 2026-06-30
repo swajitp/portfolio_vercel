@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { WooqerMapEmbed } from "@/components/wooqer-map-embed";
+import { SectionEyebrow } from "@/components/section-eyebrow";
 
 export default function WooqerExperiencePage() {
   return (
@@ -17,9 +18,7 @@ export default function WooqerExperiencePage() {
 
           <div className="mt-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
-              <span className="text-sm text-muted-foreground tracking-wider uppercase border border-border rounded-full px-4 py-1.5">
-                WOOQER EXPERIENCE
-              </span>
+              <SectionEyebrow>WOOQER EXPERIENCE</SectionEyebrow>
               <h1 className="mt-6 text-4xl sm:text-5xl font-bold leading-tight">
                 CS Ops / Program Manager ownership map
               </h1>

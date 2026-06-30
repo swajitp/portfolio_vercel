@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { MapPin, ArrowRight } from "lucide-react";
 
 const stats = [
@@ -64,12 +65,9 @@ export function HeroSection() {
 
             <div className="flex flex-wrap gap-2">
               {skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="px-3 py-1.5 text-sm text-muted-foreground bg-secondary rounded-full"
-                >
+                <Badge key={skill} variant="tag" className="text-muted-foreground">
                   {skill}
-                </span>
+                </Badge>
               ))}
             </div>
           </div>
@@ -80,12 +78,13 @@ export function HeroSection() {
                 <Image
                   src="/images/swajit-photo.png"
                   alt="Swajit Patwari"
-                  fill
-                  className="object-cover"
+                  width={256}
+                  height={288}
+                  className="h-full w-full object-cover"
                   priority
                 />
               </div>
-              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-card border border-border rounded-full px-4 py-2 flex items-center gap-2 text-sm whitespace-nowrap shadow-lg">
+              <div className="absolute bottom-3 right-3 bg-card border border-border rounded-full px-4 py-2 flex items-center gap-2 text-sm whitespace-nowrap shadow-lg">
                 <MapPin className="h-4 w-4 text-primary" />
                 <span className="text-muted-foreground">Vancouver, Canada</span>
               </div>
@@ -97,7 +96,7 @@ export function HeroSection() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center sm:text-left">
-                <div className="text-4xl sm:text-5xl font-bold text-primary mb-2">
+                <div className="text-4xl sm:text-5xl font-bold text-stat-foreground mb-2">
                   {stat.value}
                 </div>
                 <div className="text-base text-muted-foreground">

@@ -1,13 +1,12 @@
 import { Quote } from "lucide-react";
+import { SectionEyebrow } from "@/components/section-eyebrow";
 
 export function TestimonialsSection() {
   return (
     <section className="py-24 px-6 bg-card">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
-          <span className="text-sm text-muted-foreground tracking-wider uppercase border border-border rounded-full px-4 py-1.5 bg-background">
-            TESTIMONIALS
-          </span>
+          <SectionEyebrow className="bg-background">TESTIMONIALS</SectionEyebrow>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-6">
             What People Say
           </h2>

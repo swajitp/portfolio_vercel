@@ -2,6 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import { ExternalLink } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { SectionEyebrow } from "@/components/section-eyebrow";
 
 interface ExperienceItem {
   company: string;
@@ -84,9 +86,7 @@ export function ExperienceSection() {
     <section id="experience" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
-          <span className="text-sm text-muted-foreground tracking-wider uppercase border border-border rounded-full px-4 py-1.5">
-            EXPERIENCE
-          </span>
+          <SectionEyebrow>EXPERIENCE</SectionEyebrow>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-6">
             Work Experience
           </h2>
@@ -110,7 +110,11 @@ export function ExperienceSection() {
                   router.push(exp.detailUrl);
                 }
               }}
-              className="group bg-card border border-border rounded-2xl p-6 hover:border-primary/50 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className={`group bg-card border border-border rounded-2xl p-6 hover:border-primary/50 transition-all ${
+                exp.detailUrl
+                  ? "cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  : ""
+              }`}
             >
               <div className="flex items-start justify-between mb-4">
                 <div>
@@ -119,7 +123,7 @@ export function ExperienceSection() {
                   </h3>
                   <p className="text-base text-muted-foreground mt-1">{exp.type}</p>
                 </div>
-                <span className="text-base text-muted-foreground">{exp.period}</span>
+                <span className="text-base text-muted-foreground-subtle">{exp.period}</span>
               </div>
 
               <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -134,19 +138,16 @@ export function ExperienceSection() {
                   {exp.company}
                   <ExternalLink className="w-4 h-4" />
                 </a>
-                <span className="rounded-full border border-border px-2.5 py-1 text-[11px] text-muted-foreground">
+                <Badge variant="meta">
                   {exp.context}
-                </span>
+                </Badge>
               </div>
 
               <div className="flex flex-wrap gap-2 mb-5">
                 {exp.metrics.map((metric) => (
-                  <span
-                    key={metric}
-                    className="px-3 py-1.5 text-sm font-semibold text-primary bg-primary/10 rounded-full"
-                  >
+                  <Badge key={metric} variant="metric">
                     {metric}
-                  </span>
+                  </Badge>
                 ))}
               </div>
 
