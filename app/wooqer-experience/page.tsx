@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft, ExternalLink } from "lucide-react";
+import { WooqerMapEmbed } from "@/components/wooqer-map-embed";
 
 export default function WooqerExperiencePage() {
   return (
@@ -30,7 +31,7 @@ export default function WooqerExperiencePage() {
             </div>
 
             <a
-              href="/wooqer-cs-ops-map.html"
+              href="/wooqer-experience/map"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
@@ -41,11 +42,7 @@ export default function WooqerExperiencePage() {
           </div>
 
           <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-card shadow-2xl">
-            <iframe
-              title="Interactive CS Ops / Program Manager Org Map"
-              src="/wooqer-cs-ops-map.html"
-              className="h-[760px] w-full"
-            />
+            <WooqerMapEmbed className="h-[760px] w-full" />
           </div>
         </div>
       </section>
