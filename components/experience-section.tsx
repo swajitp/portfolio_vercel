@@ -1,10 +1,12 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { ExternalLink } from "lucide-react";
 
 interface ExperienceItem {
   company: string;
   companyUrl: string;
+  detailUrl?: string;
   role: string;
   period: string;
   type: string;
@@ -17,6 +19,7 @@ const experiences: ExperienceItem[] = [
   {
     company: "Wooqer",
     companyUrl: "https://www.wooqer.com/",
+    detailUrl: "/wooqer-experience",
     role: "Customer Success Operations Lead | Program Manager",
     period: "2022 - 2025",
     type: "SaaS, B2B Workflow Automation",
@@ -75,6 +78,8 @@ const experiences: ExperienceItem[] = [
 ];
 
 export function ExperienceSection() {
+  const router = useRouter();
+
   return (
     <section id="experience" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
@@ -94,7 +99,18 @@ export function ExperienceSection() {
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="group bg-card border border-border rounded-2xl p-6 hover:border-primary/50 transition-all cursor-pointer"
+              role={exp.detailUrl ? "link" : undefined}
+              tabIndex={exp.detailUrl ? 0 : undefined}
+              onClick={() => {
+                if (exp.detailUrl) router.push(exp.detailUrl);
+              }}
+              onKeyDown={(event) => {
+                if (exp.detailUrl && (event.key === "Enter" || event.key === " ")) {
+                  event.preventDefault();
+                  router.push(exp.detailUrl);
+                }
+              }}
+              className="group bg-card border border-border rounded-2xl p-6 hover:border-primary/50 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <div className="flex items-start justify-between mb-4">
                 <div>
@@ -111,6 +127,8 @@ export function ExperienceSection() {
                   href={exp.companyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={(event) => event.stopPropagation()}
+                  onKeyDown={(event) => event.stopPropagation()}
                   className="inline-flex items-center gap-2 text-lg text-primary font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
                 >
                   {exp.company}
