@@ -25,7 +25,7 @@ export function ContactSection() {
               <p className="text-3xl font-bold text-foreground mb-4">
                 Building a stronger post-sales engine?
               </p>
-              <p className="text-lg text-muted-foreground mb-6 max-w-sm leading-relaxed">
+              <p className="text-lg text-muted-foreground mb-6 max-w-xl leading-relaxed">
                 I&apos;d be glad to talk through CS operations, retention systems,
                 support workflows, or roles where those problems are central.
               </p>

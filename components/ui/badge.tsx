@@ -22,7 +22,7 @@ const badgeVariants = cva(
         metric:
           'rounded-full border-transparent bg-primary/10 px-3 py-1.5 text-sm font-semibold text-primary',
         meta:
-          'rounded-full border-border px-2.5 py-1 text-[11px] text-muted-foreground-subtle',
+          'rounded-full border-border px-2.5 py-1 text-xs text-muted-foreground-subtle',
       },
     },
     defaultVariants: {

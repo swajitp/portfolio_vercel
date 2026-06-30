@@ -52,7 +52,7 @@ export function CompetenciesSection() {
               title={item.title}
               description={item.description}
             >
-              <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                 {item.evidence}
               </p>
             </InfoCard>

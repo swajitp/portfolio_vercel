@@ -31,7 +31,7 @@ export function HeroSection() {
               Open to CS Ops, RevOps, and customer operations roles
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-5 leading-[1.08]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-5 leading-[1.12]">
               Customer success systems for teams that are
               <span className="text-primary"> ready to scale.</span>
             </h1>

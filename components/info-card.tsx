@@ -51,7 +51,7 @@ export function InfoCard({
           {title}
         </h3>
         {description ? (
-          <p className="text-base text-muted-foreground leading-relaxed">
+          <p className="text-[17px] text-muted-foreground leading-relaxed">
             {description}
           </p>
         ) : null}
