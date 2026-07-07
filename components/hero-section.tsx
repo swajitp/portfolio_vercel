@@ -14,10 +14,9 @@ const stats = [
 const skills = [
   "CS Operations",
   "Program Management",
-  "RevOps / GTM Ops",
+  "RevOps / GTM",
   "Dashboards & Automation",
   "Customer Lifecycle",
-  "Support Operations",
 ];
 
 export function HeroSection() {
@@ -32,14 +31,17 @@ export function HeroSection() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-5 leading-[1.12]">
-              Customer success systems for teams that are
-              <span className="text-primary"> ready to scale.</span>
+              Hi, I&apos;m Swajit —<br />
+              <span className="text-primary">Customer Success Operations Manager</span>
             </h1>
 
+            <p className="text-lg sm:text-xl text-muted-foreground mb-4">
+              SaaS · EdTech · Vancouver, Canada
+            </p>
+
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl leading-relaxed">
-              I turn messy post-sales operations into measurable systems: onboarding programs,
-              health dashboards, support workflows, and retention plays that give leaders
-              visibility and teams a clearer way to execute.
+              I build the systems behind customer success: onboarding programs, health dashboards,
+              and retention plays that give teams visibility and a clear way to execute.
             </p>
 
             <div className="flex flex-wrap gap-4 mb-12">
