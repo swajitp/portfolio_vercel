@@ -10,72 +10,100 @@ interface ExperienceItem {
   company: string;
   companyUrl: string;
   detailUrl?: string;
-  role: string;
   period: string;
-  type: string;
-  context: string;
-  metrics: string[];
-  highlights: string[];
+  roles: {
+    role: string;
+    period?: string;
+    type?: string;
+    context?: string;
+    metrics: string[];
+    highlights: string[];
+  }[];
 }
+
+const experienceTags = [
+  "Customer Success",
+  "Adoption",
+  "Retention",
+  "Renewals",
+  "Customer Health",
+  "Risk Management",
+  "Automation",
+];
 
 const experiences: ExperienceItem[] = [
   {
     company: "Wooqer",
     companyUrl: "https://www.wooqer.com/",
     detailUrl: "/wooqer-experience",
-    role: "Customer Success Operations Lead | Program Manager",
     period: "2022 - 2025",
-    type: "SaaS, B2B Workflow Automation",
-    context: "B2B SaaS · India / MENA / US",
-    metrics: ["$6M ARR", "20%+ MoM growth", "60 to 30 day payment cycle"],
-    highlights: [
-      "Owned CS Operations across 8 pods, directly managing Helpdesk, Skilling, and Onboarding",
-      "Built AI-assisted churn-risk scoring identifying 2/3 potential churns before notice",
-      "Created dashboard tracking MAU/WAU driving 0.5% NRR lift and 1% retention improvement",
-      "Led USD 6M ARR portfolio across Middle East, US, and India with 20%+ MoM adoption growth",
-      "Reduced payment cycles from 60+ days to 30 days through RevOps optimization",
+    roles: [
+      {
+        role: "Customer Success Manager",
+        period: "2024 - 2025",
+        type: "SaaS, B2B Workflow Automation",
+        context: "India / MENA / US",
+        metrics: ["120 accounts", "95% retention", "115% NRR"],
+        highlights: [
+          "Managed 120 B2B SaaS accounts across onboarding, adoption, renewals, and risk while maintaining 95% logo retention and 115% NRR.",
+        ],
+      },
+      {
+        role: "Customer Success Operations Lead | Program Manager",
+        period: "2022 - 2024",
+        metrics: ["8 CS pods", "2/3 churn risks identified", "60 → 30 day payment cycle"],
+        highlights: [
+          "Built customer success systems across 8 teams, including health models, dashboards, playbooks, and automations that improved churn visibility and operational efficiency.",
+        ],
+      },
     ],
   },
   {
     company: "Intellipaat",
     companyUrl: "https://intellipaat.com/",
-    role: "Head of Operations (Customer Success & Post-Sales)",
     period: "2021 - 2022",
-    type: "EdTech, Online Learning Platform",
-    context: "EdTech · India",
-    metrics: ["~90 member org", "80%+ SLA adherence", "USD 20k-25k monthly revenue"],
-    highlights: [
-      "Led Operations, Learning Management, and Support functions scaling team to ~90 members",
-      "Built SOPs, SLAs, and 20+ quality checkpoints maintaining 80%+ SLA adherence",
-      "Established Learning Managers function driving USD 20k-25k monthly revenue",
-      "Owned delivery for 250+ simultaneous online sessions/webinars",
+    roles: [
+      {
+        role: "Head of Operations (Customer Success & Post-Sales)",
+        type: "EdTech, Online Learning Platform",
+        context: "EdTech · India",
+        metrics: ["~90 member org", "250+ live sessions", "80%+ SLA"],
+        highlights: [
+          "Scaled post-sales operations to ~90 team members while building SOPs, SLAs, and quality systems supporting 250+ simultaneous sessions.",
+        ],
+      },
     ],
   },
   {
     company: "Intellipaat",
     companyUrl: "https://intellipaat.com/",
-    role: "Manager, Customer Operations & Technical Support",
     period: "2020 - 2021",
-    type: "EdTech, Online Learning Platform",
-    context: "EdTech · India",
-    metrics: ["50+ team members", "40-45% NPS", "12-15x review growth"],
-    highlights: [
-      "Led Operations and Technical Support teams of 50+ members",
-      "Maintained NPS of 40-45% and trainer satisfaction above 95%",
-      "Drove 12-15x increase in monthly positive reviews through CSAT goals",
+    roles: [
+      {
+        role: "Manager, Customer Operations & Technical Support",
+        type: "EdTech, Online Learning Platform",
+        context: "EdTech · India",
+        metrics: ["50+ team members", "40-45 NPS", "12-15× review growth"],
+        highlights: [
+          "Led 50+ team members across customer operations and support while maintaining 40-45 NPS and driving 12-15× growth in positive reviews.",
+        ],
+      },
     ],
   },
   {
     company: "Byju's",
     companyUrl: "https://byjus.com/",
-    role: "Product and Retention Expert",
     period: "2018 - 2019",
-    type: "EdTech, Online Learning Platform",
-    context: "EdTech · India",
-    metrics: ["400-500 trial users/year", "~85% retention", "K12 pilot launch"],
-    highlights: [
-      "Managed retention for 400-500 trial users/year maintaining ~85% retention",
-      "Core team member for Disney-Byju's and K12 one-on-one pilots",
+    roles: [
+      {
+        role: "Product & Retention Expert",
+        type: "EdTech, Online Learning Platform",
+        context: "EdTech · India",
+        metrics: ["400–500 customers/year", "~85% retention", "K–12 pilots"],
+        highlights: [
+          "Managed 400–500 customers annually with ~85% retention and supported the launch of Disney-BYJU'S and K–12 one-on-one pilots.",
+        ],
+      },
     ],
   },
 ];
@@ -92,12 +120,19 @@ export function ExperienceSection() {
             Work Experience
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-zinc-400">
-            Building and scaling customer success operations across SaaS and EdTech.
+            Customer Success, backed by strong operations.
           </p>
           <p className="mt-6 text-sm leading-relaxed text-zinc-500">
-            My roles have centered on turning post-sales complexity into measurable systems:
-            dashboards, retention signals, SOPs, SLAs, onboarding programs, and RevOps workflows.
+            7+ years across SaaS and EdTech, helping customers adopt products, realize value,
+            manage risk, and retain & grow accounts.
           </p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {experienceTags.map((tag) => (
+              <Badge key={tag} variant="metric">
+                {tag}
+              </Badge>
+            ))}
+          </div>
         </Reveal>
 
         <Reveal delay={120} className="md:col-span-7">
@@ -138,28 +173,48 @@ export function ExperienceSection() {
                     <span className="font-mono text-xs text-zinc-500">{exp.period}</span>
                   </div>
 
-                  <div className="mb-2 font-medium text-zinc-300">{exp.role}</div>
-                  <p className="mb-4 text-sm text-zinc-500">{exp.type} / {exp.context}</p>
+                  <div className="space-y-6">
+                    {exp.roles.map((role, roleIndex) => (
+                      <div
+                        key={`${role.role}-${role.period}`}
+                        className={roleIndex > 0 ? "border-t border-white/10 pt-5" : ""}
+                      >
+                        <div className="mb-2 flex flex-col justify-between gap-1 sm:flex-row sm:items-baseline">
+                          <div className="font-medium text-zinc-300">{role.role}</div>
+                          {role.period ? (
+                            <span className="font-mono text-xs text-zinc-500">
+                              {role.period}
+                            </span>
+                          ) : null}
+                        </div>
+                        {role.type && role.context ? (
+                          <p className="mb-4 text-sm text-zinc-500">
+                            {role.type} · {role.context}
+                          </p>
+                        ) : null}
 
-                  <div className="mb-5 flex flex-wrap gap-2">
-                    {exp.metrics.map((metric) => (
-                      <Badge key={metric} variant="metric">
-                        {metric}
-                      </Badge>
+                        <div className="mb-5 flex flex-wrap gap-2">
+                          {role.metrics.map((metric) => (
+                            <Badge key={metric} variant="metric">
+                              {metric}
+                            </Badge>
+                          ))}
+                        </div>
+
+                        <ul className="space-y-3">
+                          {role.highlights.map((highlight, i) => (
+                            <li
+                              key={i}
+                              className="flex items-start gap-3 text-sm leading-relaxed text-zinc-400"
+                            >
+                              <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-zinc-600 transition-colors group-hover:bg-white" />
+                              <span>{highlight}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     ))}
                   </div>
-
-                  <ul className="space-y-3">
-                    {exp.highlights.map((highlight, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start gap-3 text-sm leading-relaxed text-zinc-400"
-                      >
-                        <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-zinc-600 transition-colors group-hover:bg-white" />
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </article>
               ))}
                 </div>
