@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { SectionEyebrow } from "@/components/section-eyebrow";
+import { Reveal } from "@/components/reveal";
 
 interface ExperienceItem {
   company: string;
@@ -83,21 +84,27 @@ export function ExperienceSection() {
   const router = useRouter();
 
   return (
-    <section id="experience" className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-12">
+    <section id="experience" className="site-container py-20">
+      <div className="grid gap-12 md:grid-cols-12">
+        <Reveal className="md:col-span-5">
           <SectionEyebrow>EXPERIENCE</SectionEyebrow>
-          <h2 className="text-[32px] sm:text-[38px] font-bold text-foreground mt-6">
+          <h2 className="mt-6 text-4xl font-bold tracking-tight text-white">
             Work Experience
           </h2>
-          <p className="text-[20px] text-muted-foreground leading-relaxed mt-2">
+          <p className="mt-6 text-lg leading-relaxed text-zinc-400">
             Building and scaling customer success operations across SaaS and EdTech.
           </p>
-        </div>
+          <p className="mt-6 text-sm leading-relaxed text-zinc-500">
+            My roles have centered on turning post-sales complexity into measurable systems:
+            dashboards, retention signals, SOPs, SLAs, onboarding programs, and RevOps workflows.
+          </p>
+        </Reveal>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {experiences.map((exp, index) => (
-            <div
+        <Reveal delay={120} className="md:col-span-7">
+          <div className="section-panel h-full p-6 transition-colors hover:border-white/10 md:p-8">
+            <div className="space-y-8">
+              {experiences.map((exp, index) => (
+                <article
               key={index}
               role={exp.detailUrl ? "link" : undefined}
               tabIndex={exp.detailUrl ? 0 : undefined}
@@ -110,61 +117,54 @@ export function ExperienceSection() {
                   router.push(exp.detailUrl);
                 }
               }}
-              className={`group bg-card border border-border rounded-2xl p-6 hover:border-primary/50 transition-all ${
+                  className={`group relative border-l border-white/10 pl-6 transition-colors hover:border-white ${
                 exp.detailUrl
-                  ? "cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                      ? "cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
                   : ""
               }`}
             >
-              <div className="flex items-start justify-between mb-4">
-                <div>
-                  <h3 className="text-[26px] font-semibold text-foreground group-hover:text-primary transition-colors">
-                    {exp.role}
-                  </h3>
-                  <p className="text-[18px] text-muted-foreground mt-1">{exp.type}</p>
+                  <div className="mb-1 flex flex-col justify-between gap-2 sm:flex-row sm:items-baseline">
+                    <a
+                      href={exp.companyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(event) => event.stopPropagation()}
+                      onKeyDown={(event) => event.stopPropagation()}
+                      className="inline-flex w-fit items-center gap-2 rounded-sm text-xl font-bold text-white transition-colors hover:text-zinc-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                    >
+                      {exp.company}
+                      <ExternalLink className="h-4 w-4 text-zinc-500" />
+                    </a>
+                    <span className="font-mono text-xs text-zinc-500">{exp.period}</span>
+                  </div>
+
+                  <div className="mb-2 font-medium text-zinc-300">{exp.role}</div>
+                  <p className="mb-4 text-sm text-zinc-500">{exp.type} / {exp.context}</p>
+
+                  <div className="mb-5 flex flex-wrap gap-2">
+                    {exp.metrics.map((metric) => (
+                      <Badge key={metric} variant="metric">
+                        {metric}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  <ul className="space-y-3">
+                    {exp.highlights.map((highlight, i) => (
+                      <li
+                        key={i}
+                        className="flex items-start gap-3 text-sm leading-relaxed text-zinc-400"
+                      >
+                        <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-zinc-600 transition-colors group-hover:bg-white" />
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
                 </div>
-                <span className="text-[18px] text-muted-foreground-subtle">{exp.period}</span>
               </div>
-
-              <div className="flex flex-wrap items-center gap-2 mb-4">
-                <a
-                  href={exp.companyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(event) => event.stopPropagation()}
-                  onKeyDown={(event) => event.stopPropagation()}
-                  className="inline-flex items-center gap-2 text-[20px] text-primary font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
-                >
-                  {exp.company}
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-                <Badge variant="meta">
-                  {exp.context}
-                </Badge>
-              </div>
-
-              <div className="flex flex-wrap gap-2 mb-5">
-                {exp.metrics.map((metric) => (
-                  <Badge key={metric} variant="metric">
-                    {metric}
-                  </Badge>
-                ))}
-              </div>
-
-              <ul className="space-y-3">
-                {exp.highlights.map((highlight, i) => (
-                  <li
-                    key={i}
-                    className="text-[19px] text-muted-foreground leading-8 flex items-start gap-2"
-                  >
-                    <span className="text-primary mt-1.5">•</span>
-                    {highlight}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

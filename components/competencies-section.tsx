@@ -1,6 +1,7 @@
 import { Users, BarChart3, Zap, Target } from "lucide-react";
 import { InfoCard } from "@/components/info-card";
 import { SectionEyebrow } from "@/components/section-eyebrow";
+import { Reveal } from "@/components/reveal";
 
 const competencies = [
   {
@@ -35,30 +36,33 @@ const competencies = [
 
 export function CompetenciesSection() {
   return (
-    <section id="skills" className="py-20 px-6 bg-secondary/20">
-      <div className="max-w-6xl mx-auto">
+    <section id="skills" className="site-container pt-16 pb-20 md:pt-20">
+      <Reveal className="section-panel relative overflow-hidden p-8 md:p-16">
         <div className="mb-12">
           <SectionEyebrow>COMPETENCIES</SectionEyebrow>
-          <h2 className="text-[32px] sm:text-[38px] font-bold text-foreground mt-6">
+          <h2 className="mt-6 text-4xl font-bold tracking-tight text-white md:text-5xl">
             Areas of Expertise
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {competencies.map((item) => (
+        <div className="relative z-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {competencies.map((item, index) => (
             <InfoCard
               key={item.title}
-              icon={<item.icon className="w-6 h-6 text-primary" />}
+              className="border-0 bg-transparent p-0 shadow-none hover:-translate-y-2"
+              contentClassName="p-0"
+              icon={<item.icon className="h-6 w-6" />}
               title={item.title}
               description={item.description}
+              style={{ transitionDelay: `${index * 60}ms` }}
             >
-              <p className="mt-2 text-base text-muted-foreground leading-relaxed">
+              <p className="mt-3 text-sm leading-relaxed text-zinc-500">
                 {item.evidence}
               </p>
             </InfoCard>
           ))}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

@@ -1,73 +1,56 @@
-"use client";
-
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight, Linkedin, Mail, Phone } from "lucide-react";
 import { SectionEyebrow } from "@/components/section-eyebrow";
+import { Reveal } from "@/components/reveal";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-28 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-12">
+    <section id="contact" className="site-container mb-12 py-20">
+      <Reveal className="relative overflow-hidden rounded-[3rem] border border-white/10 bg-gradient-to-b from-zinc-900 to-black p-8 text-center md:p-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(39,39,42,0.45),transparent_58%)] opacity-70" />
+        <div className="relative z-10">
           <SectionEyebrow>CONTACT</SectionEyebrow>
-          <h2 className="text-[32px] sm:text-[38px] font-bold text-foreground mt-6">
-            Let&apos;s Connect
+          <h2 className="mx-auto mt-8 max-w-4xl text-4xl font-bold tracking-tighter text-white md:text-7xl">
+            Building a stronger post-sales engine?
           </h2>
-          <p className="text-[20px] text-muted-foreground mt-3 max-w-2xl leading-relaxed">
+          <p className="mx-auto mt-8 max-w-xl text-xl font-light leading-relaxed text-zinc-400">
             Open to customer success operations, RevOps, post-sales strategy, and
             operations transformation roles where scalable systems matter.
           </p>
-        </div>
 
-        <div className="max-w-3xl">
-          <div className="bg-card border border-border rounded-2xl p-6 sm:p-8">
-            <div>
-              <p className="text-[32px] font-bold text-foreground mb-4">
-                Building a stronger post-sales engine?
-              </p>
-              <p className="text-[20px] text-muted-foreground mb-6 max-w-xl leading-relaxed">
-                I&apos;d be glad to talk through CS operations, retention systems,
-                support workflows, or roles where those problems are central.
-              </p>
-              <p className="mb-4 text-base text-muted-foreground">
-                Open to full-time CS Ops and RevOps roles in Vancouver — available immediately.
-              </p>
-              <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-              <Button
-                asChild
-                size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full"
+          <p className="mx-auto mt-5 max-w-xl text-sm text-zinc-500">
+            Open to full-time CS Ops and RevOps roles in Vancouver, available immediately.
+          </p>
+
+          <div className="mt-12 flex flex-col items-center justify-center gap-5 md:flex-row">
+            <a
+              href="mailto:swajit.patwari@gmail.com"
+              className="group flex w-full max-w-full items-center justify-center gap-3 overflow-hidden rounded-full bg-white px-6 py-4 text-sm font-bold text-black transition-all hover:scale-105 hover:bg-zinc-200 active:scale-95 md:w-auto md:px-10 md:py-5 md:text-lg"
+            >
+              <Mail className="shrink-0" />
+              <span className="truncate">swajit.patwari@gmail.com</span>
+              <ArrowRight className="h-4 w-4 shrink-0 opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100" />
+            </a>
+            <div className="flex gap-3 md:gap-4">
+              <a
+                href="https://linkedin.com/in/swajit"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Connect with Swajit on LinkedIn"
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-zinc-900 transition-all duration-300 hover:scale-110 hover:bg-white hover:text-black md:h-16 md:w-16"
               >
-                <a href="mailto:swajit.patwari@gmail.com">
-                  Send an Email
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="rounded-full border-border bg-transparent text-primary hover:bg-secondary"
-                >
-                  <a
-                    href="https://linkedin.com/in/swajit"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    LinkedIn @swajit
-                  </a>
-                </Button>
-                <a
-                  href="tel:+16047358611"
-                  className="text-[18px] text-muted-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
-                >
-                  +1 604 735 8611
-                </a>
-              </div>
+                <Linkedin className="h-5 w-5 md:h-6 md:w-6" />
+              </a>
+              <a
+                href="tel:+16047358611"
+                aria-label="Call Swajit"
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-zinc-900 transition-all duration-300 hover:scale-110 hover:bg-white hover:text-black md:h-16 md:w-16"
+              >
+                <Phone className="h-5 w-5 md:h-6 md:w-6" />
+              </a>
             </div>
           </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

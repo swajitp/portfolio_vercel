@@ -10,7 +10,7 @@ export function SectionEyebrow({ children, className }: SectionEyebrowProps) {
   return (
     <span
       className={cn(
-        "inline-flex rounded-full border border-border px-4 py-1.5 text-[14px] uppercase tracking-wider text-muted-foreground",
+        "inline-flex rounded-full border border-white/5 bg-zinc-800/50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-zinc-400",
         className,
       )}
     >

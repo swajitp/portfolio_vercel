@@ -2,6 +2,7 @@
 
 import { GraduationCap, MapPin } from "lucide-react";
 import { SectionEyebrow } from "@/components/section-eyebrow";
+import { Reveal } from "@/components/reveal";
 
 interface EducationItem {
   degree: string;
@@ -27,37 +28,37 @@ const education: EducationItem[] = [
 
 export function EducationSection() {
   return (
-    <section id="education" className="py-20 px-6 bg-secondary/20">
-      <div className="max-w-6xl mx-auto">
+    <section id="education" className="site-container py-20">
+      <Reveal>
         <div className="mb-12">
           <SectionEyebrow>EDUCATION</SectionEyebrow>
-          <h2 className="text-[32px] sm:text-[38px] font-bold text-foreground mt-6">
+          <h2 className="mt-6 text-4xl font-bold tracking-tight text-white md:text-5xl">
             Academic Background
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid gap-6 md:grid-cols-2">
           {education.map((edu, index) => (
             <div
               key={index}
-              className="bg-card border border-border rounded-2xl p-6 hover:border-primary/50 transition-colors"
+              className="section-panel p-6 transition-all duration-500 hover:-translate-y-2 hover:border-white/20 md:p-8"
             >
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 border border-white/5 flex items-center justify-center flex-shrink-0">
-                  <GraduationCap className="w-6 h-6 text-primary" />
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-zinc-800 text-white">
+                  <GraduationCap className="h-6 w-6" />
                 </div>
                 <div className="flex-1">
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="text-[22px] font-semibold text-foreground">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                    <h3 className="text-xl font-bold leading-tight text-white">
                       {edu.degree}
                     </h3>
-                    <span className="text-[18px] text-muted-foreground-subtle whitespace-nowrap">
+                    <span className="whitespace-nowrap font-mono text-xs text-zinc-500">
                       {edu.period}
                     </span>
                   </div>
-                  <p className="text-[18px] text-muted-foreground mt-1">{edu.school}</p>
-                  <div className="flex items-center gap-1.5 mt-2 text-[18px] text-muted-foreground">
-                    <MapPin className="w-4 h-4" />
+                  <p className="mt-2 text-sm font-medium text-zinc-300">{edu.school}</p>
+                  <div className="mt-3 flex items-center gap-1.5 text-sm text-zinc-500">
+                    <MapPin className="h-4 w-4" />
                     {edu.location}
                   </div>
                 </div>
@@ -65,7 +66,7 @@ export function EducationSection() {
             </div>
           ))}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
