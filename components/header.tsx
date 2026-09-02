@@ -60,11 +60,14 @@ export function Header() {
   }, []);
 
   return (
-    <header ref={menuRef} className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
+    <header
+      ref={menuRef}
+      className="fixed top-0 left-0 right-0 z-50 px-6 py-4"
+    >
       <nav className="max-w-6xl mx-auto flex items-center justify-between">
         <Link
           href="/"
-          className="text-xl font-bold text-foreground hover:text-primary transition-colors"
+          className="text-[22px] font-bold text-foreground hover:text-primary transition-colors"
         >
           Swajit.
         </Link>
@@ -75,7 +78,7 @@ export function Header() {
               key={item.href}
               href={item.href}
               className={cn(
-                "px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-secondary",
+                "px-4 py-2 text-base text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-secondary",
                 activeHref === item.href && "bg-secondary text-foreground",
               )}
             >
@@ -87,12 +90,18 @@ export function Header() {
         <div className="flex items-center gap-2">
           <button
             type="button"
-            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-label={
+              isMenuOpen ? "Close navigation menu" : "Open navigation menu"
+            }
             aria-expanded={isMenuOpen}
             onClick={() => setIsMenuOpen((open) => !open)}
             className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-foreground hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {isMenuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
           </button>
 
           <Button
@@ -115,19 +124,19 @@ export function Header() {
             : "pointer-events-none max-h-0 -translate-y-2 opacity-0",
         )}
       >
-          <div className="flex flex-col p-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsMenuOpen(false)}
-                className="flex min-h-11 items-center rounded-xl px-4 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
+        <div className="flex flex-col p-2">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setIsMenuOpen(false)}
+              className="flex min-h-11 items-center rounded-xl px-4 text-base text-muted-foreground hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
+      </div>
     </header>
   );
 }
