@@ -31,7 +31,7 @@ export function ToolsStackSection() {
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {toolGroups.map((group) => (
             <div key={group.category} className="space-y-3">
-              <p className="text-xs uppercase tracking-wider text-muted-foreground-subtle">
+              <p className="text-[14px] uppercase tracking-wider text-muted-foreground-subtle">
                 {group.category}
               </p>
               <div className="flex flex-wrap gap-2">

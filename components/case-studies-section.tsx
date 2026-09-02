@@ -48,10 +48,10 @@ export function CaseStudiesSection() {
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
           <SectionEyebrow>SELECTED WORK</SectionEyebrow>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-6">
+          <h2 className="text-[32px] sm:text-[38px] font-bold text-foreground mt-6">
             Impact-Driven Projects
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed mt-3 max-w-2xl">
+          <p className="text-[20px] text-muted-foreground leading-relaxed mt-3 max-w-2xl">
             Systems I&apos;ve built that delivered measurable outcomes for customer success, 
             retention, and operational efficiency.
           </p>
@@ -66,18 +66,18 @@ export function CaseStudiesSection() {
               icon={<study.icon className="w-6 h-6 text-primary" />}
               title={study.title}
               description={study.description}
-              titleClassName="text-2xl"
+              titleClassName="text-[26px]"
               footer={
                 <div className="flex flex-wrap gap-2 pt-4 border-t border-border">
                   {study.tags.map((tag) => (
-                    <span key={tag} className="text-sm text-muted-foreground">
+                    <span key={tag} className="text-base text-muted-foreground">
                       #{tag}
                     </span>
                   ))}
                 </div>
               }
             >
-              <p className="-mt-1 mb-5 text-xs uppercase tracking-wider text-muted-foreground-subtle">
+              <p className="-mt-1 mb-5 text-[14px] uppercase tracking-wider text-muted-foreground-subtle">
                 {study.category}
               </p>
 

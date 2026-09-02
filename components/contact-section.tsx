@@ -10,10 +10,10 @@ export function ContactSection() {
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
           <SectionEyebrow>CONTACT</SectionEyebrow>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-6">
+          <h2 className="text-[32px] sm:text-[38px] font-bold text-foreground mt-6">
             Let&apos;s Connect
           </h2>
-          <p className="text-lg text-muted-foreground mt-3 max-w-2xl leading-relaxed">
+          <p className="text-[20px] text-muted-foreground mt-3 max-w-2xl leading-relaxed">
             Open to customer success operations, RevOps, post-sales strategy, and
             operations transformation roles where scalable systems matter.
           </p>
@@ -22,14 +22,14 @@ export function ContactSection() {
         <div className="max-w-3xl">
           <div className="bg-card border border-border rounded-2xl p-6 sm:p-8">
             <div>
-              <p className="text-3xl font-bold text-foreground mb-4">
+              <p className="text-[32px] font-bold text-foreground mb-4">
                 Building a stronger post-sales engine?
               </p>
-              <p className="text-lg text-muted-foreground mb-6 max-w-xl leading-relaxed">
+              <p className="text-[20px] text-muted-foreground mb-6 max-w-xl leading-relaxed">
                 I&apos;d be glad to talk through CS operations, retention systems,
                 support workflows, or roles where those problems are central.
               </p>
-              <p className="mb-4 text-sm text-muted-foreground">
+              <p className="mb-4 text-base text-muted-foreground">
                 Open to full-time CS Ops and RevOps roles in Vancouver — available immediately.
               </p>
               <div className="flex flex-col sm:flex-row sm:items-center gap-3">
@@ -59,7 +59,7 @@ export function ContactSection() {
                 </Button>
                 <a
                   href="tel:+16047358611"
-                  className="text-base text-muted-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+                  className="text-[18px] text-muted-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
                 >
                   +1 604 735 8611
                 </a>

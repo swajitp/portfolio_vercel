@@ -87,10 +87,10 @@ export function ExperienceSection() {
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
           <SectionEyebrow>EXPERIENCE</SectionEyebrow>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-6">
+          <h2 className="text-[32px] sm:text-[38px] font-bold text-foreground mt-6">
             Work Experience
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed mt-2">
+          <p className="text-[20px] text-muted-foreground leading-relaxed mt-2">
             Building and scaling customer success operations across SaaS and EdTech.
           </p>
         </div>
@@ -118,12 +118,12 @@ export function ExperienceSection() {
             >
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <h3 className="text-2xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                  <h3 className="text-[26px] font-semibold text-foreground group-hover:text-primary transition-colors">
                     {exp.role}
                   </h3>
-                  <p className="text-base text-muted-foreground mt-1">{exp.type}</p>
+                  <p className="text-[18px] text-muted-foreground mt-1">{exp.type}</p>
                 </div>
-                <span className="text-base text-muted-foreground-subtle">{exp.period}</span>
+                <span className="text-[18px] text-muted-foreground-subtle">{exp.period}</span>
               </div>
 
               <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -133,7 +133,7 @@ export function ExperienceSection() {
                   rel="noopener noreferrer"
                   onClick={(event) => event.stopPropagation()}
                   onKeyDown={(event) => event.stopPropagation()}
-                  className="inline-flex items-center gap-2 text-lg text-primary font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+                  className="inline-flex items-center gap-2 text-[20px] text-primary font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
                 >
                   {exp.company}
                   <ExternalLink className="w-4 h-4" />
@@ -155,7 +155,7 @@ export function ExperienceSection() {
                 {exp.highlights.map((highlight, i) => (
                   <li
                     key={i}
-                    className="text-[17px] text-muted-foreground leading-8 flex items-start gap-2"
+                    className="text-[19px] text-muted-foreground leading-8 flex items-start gap-2"
                   >
                     <span className="text-primary mt-1.5">•</span>
                     {highlight}

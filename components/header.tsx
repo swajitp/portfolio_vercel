@@ -67,7 +67,7 @@ export function Header() {
       <nav className="max-w-6xl mx-auto flex items-center justify-between">
         <Link
           href="/"
-          className="text-[22px] font-bold text-foreground hover:text-primary transition-colors"
+          className="text-[24px] font-bold text-foreground hover:text-primary transition-colors"
         >
           Swajit.
         </Link>
@@ -78,7 +78,7 @@ export function Header() {
               key={item.href}
               href={item.href}
               className={cn(
-                "px-4 py-2 text-base text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-secondary",
+                "px-4 py-2 text-[18px] text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-secondary",
                 activeHref === item.href && "bg-secondary text-foreground",
               )}
             >
@@ -130,7 +130,7 @@ export function Header() {
               key={item.href}
               href={item.href}
               onClick={() => setIsMenuOpen(false)}
-              className="flex min-h-11 items-center rounded-xl px-4 text-base text-muted-foreground hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="flex min-h-11 items-center rounded-xl px-4 text-[18px] text-muted-foreground hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               {item.label}
             </Link>

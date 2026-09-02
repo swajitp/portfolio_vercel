@@ -7,7 +7,7 @@ export function TestimonialsSection() {
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
           <SectionEyebrow className="bg-background">TESTIMONIALS</SectionEyebrow>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-6">
+          <h2 className="text-[32px] sm:text-[38px] font-bold text-foreground mt-6">
             What People Say
           </h2>
         </div>
@@ -21,7 +21,7 @@ export function TestimonialsSection() {
               <Quote className="w-10 h-10 text-primary/20 absolute top-6 right-6" />
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center">
-                  <span className="text-muted-foreground text-lg font-medium">?</span>
+                  <span className="text-muted-foreground text-[20px] font-medium">?</span>
                 </div>
                 <div>
                   <div className="h-4 w-24 bg-secondary rounded mb-1" />
@@ -33,14 +33,14 @@ export function TestimonialsSection() {
                 <div className="h-3 w-full bg-secondary/30 rounded" />
                 <div className="h-3 w-3/4 bg-secondary/30 rounded" />
               </div>
-              <p className="text-xs text-muted-foreground mt-6 italic">
+              <p className="text-[14px] text-muted-foreground mt-6 italic">
                 Testimonial coming soon
               </p>
             </div>
           ))}
         </div>
 
-        <p className="text-center text-muted-foreground mt-8 text-sm">
+        <p className="text-center text-muted-foreground mt-8 text-base">
           Testimonials will be added as recommendations are received.
         </p>
       </div>

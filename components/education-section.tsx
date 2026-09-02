@@ -31,7 +31,7 @@ export function EducationSection() {
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
           <SectionEyebrow>EDUCATION</SectionEyebrow>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-6">
+          <h2 className="text-[32px] sm:text-[38px] font-bold text-foreground mt-6">
             Academic Background
           </h2>
         </div>
@@ -48,15 +48,15 @@ export function EducationSection() {
                 </div>
                 <div className="flex-1">
                   <div className="flex items-start justify-between gap-4">
-                    <h3 className="text-xl font-semibold text-foreground">
+                    <h3 className="text-[22px] font-semibold text-foreground">
                       {edu.degree}
                     </h3>
-                    <span className="text-base text-muted-foreground-subtle whitespace-nowrap">
+                    <span className="text-[18px] text-muted-foreground-subtle whitespace-nowrap">
                       {edu.period}
                     </span>
                   </div>
-                  <p className="text-base text-muted-foreground mt-1">{edu.school}</p>
-                  <div className="flex items-center gap-1.5 mt-2 text-base text-muted-foreground">
+                  <p className="text-[18px] text-muted-foreground mt-1">{edu.school}</p>
+                  <div className="flex items-center gap-1.5 mt-2 text-[18px] text-muted-foreground">
                     <MapPin className="w-4 h-4" />
                     {edu.location}
                   </div>

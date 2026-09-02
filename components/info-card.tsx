@@ -44,14 +44,14 @@ export function InfoCard({
         ) : null}
         <h3
           className={cn(
-            "text-xl font-semibold text-foreground mb-2 transition-colors group-hover:text-primary",
+            "text-[22px] font-semibold text-foreground mb-2 transition-colors group-hover:text-primary",
             titleClassName,
           )}
         >
           {title}
         </h3>
         {description ? (
-          <p className="text-[17px] text-muted-foreground leading-relaxed">
+          <p className="text-[19px] text-muted-foreground leading-relaxed">
             {description}
           </p>
         ) : null}

@@ -39,7 +39,7 @@ export function CompetenciesSection() {
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
           <SectionEyebrow>COMPETENCIES</SectionEyebrow>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-6">
+          <h2 className="text-[32px] sm:text-[38px] font-bold text-foreground mt-6">
             Areas of Expertise
           </h2>
         </div>
@@ -52,7 +52,7 @@ export function CompetenciesSection() {
               title={item.title}
               description={item.description}
             >
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+              <p className="mt-2 text-base text-muted-foreground leading-relaxed">
                 {item.evidence}
               </p>
             </InfoCard>

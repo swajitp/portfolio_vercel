@@ -25,21 +25,21 @@ export function HeroSection() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12 lg:gap-16">
           <div className="flex-1 max-w-2xl">
-            <div className="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-8">
+            <div className="inline-flex items-center gap-2 text-primary text-base font-semibold mb-8">
               <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
               Open to CS Ops, RevOps, and customer operations roles
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-5 leading-[1.12]">
+            <h1 className="text-[38px] sm:text-[50px] lg:text-[62px] font-bold text-foreground mb-5 leading-[1.12]">
               Hi, I&apos;m Swajit —<br />
               <span className="text-primary">Customer Success Operations Manager</span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-muted-foreground mb-4">
+            <p className="text-[20px] sm:text-[22px] text-muted-foreground mb-4">
               SaaS · EdTech · Vancouver, Canada
             </p>
 
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl leading-relaxed">
+            <p className="text-[22px] text-muted-foreground mb-8 max-w-2xl leading-relaxed">
               I build the systems behind customer success: onboarding programs, health dashboards,
               and retention plays that give teams visibility and a clear way to execute.
             </p>
@@ -86,7 +86,7 @@ export function HeroSection() {
                   priority
                 />
               </div>
-              <div className="absolute bottom-3 right-3 bg-card border border-border rounded-full px-4 py-2 flex items-center gap-2 text-sm whitespace-nowrap shadow-lg">
+              <div className="absolute bottom-3 right-3 bg-card border border-border rounded-full px-4 py-2 flex items-center gap-2 text-base whitespace-nowrap shadow-lg">
                 <MapPin className="h-4 w-4 text-primary" />
                 <span className="text-muted-foreground">Vancouver, Canada</span>
               </div>
@@ -98,10 +98,10 @@ export function HeroSection() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center sm:text-left">
-                <div className="text-4xl sm:text-5xl font-bold text-stat-foreground mb-2">
+                <div className="text-[38px] sm:text-[50px] font-bold text-stat-foreground mb-2">
                   {stat.value}
                 </div>
-                <div className="text-base text-muted-foreground">
+                <div className="text-[18px] text-muted-foreground">
                   {stat.label}
                 </div>
               </div>

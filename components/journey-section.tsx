@@ -55,7 +55,7 @@ export function JourneySection() {
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
           <SectionEyebrow>MY JOURNEY</SectionEyebrow>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-6">
+          <h2 className="text-[32px] sm:text-[38px] font-bold text-foreground mt-6">
             Career Timeline
           </h2>
           <p className="text-muted-foreground mt-3 max-w-2xl">
@@ -93,20 +93,20 @@ export function JourneySection() {
                           <Briefcase className="w-5 h-5 text-primary" />
                         )}
                       </div>
-                      <span className="text-xs text-primary font-medium uppercase tracking-wider">
+                      <span className="text-[14px] text-primary font-medium uppercase tracking-wider">
                         {item.highlight}
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-semibold text-foreground mb-1">
+                    <h3 className="text-[20px] font-semibold text-foreground mb-1">
                       {item.title}
                     </h3>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                    <div className="flex items-center gap-2 text-base text-muted-foreground mb-3">
                       <span className="text-primary font-medium">{item.company}</span>
                       <span>•</span>
                       <span>{item.period}</span>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-base text-muted-foreground leading-relaxed">
                       {item.description}
                     </p>
                   </div>

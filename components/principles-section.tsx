@@ -35,7 +35,7 @@ export function PrinciplesSection() {
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
           <SectionEyebrow className="bg-background">HOW I WORK</SectionEyebrow>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-6">
+          <h2 className="text-[32px] sm:text-[38px] font-bold text-foreground mt-6">
             Operating Principles
           </h2>
           <p className="text-muted-foreground mt-3 max-w-2xl">
@@ -52,11 +52,11 @@ export function PrinciplesSection() {
               <div className="w-12 h-12 rounded-xl bg-primary/10 border border-white/5 flex items-center justify-center mx-auto lg:mx-0 mb-4 group-hover:bg-primary/20 transition-colors">
                 <principle.icon className="w-6 h-6 text-primary" />
               </div>
-              <div className="text-xs text-muted-foreground mb-2">0{index + 1}</div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">
+              <div className="text-[14px] text-muted-foreground mb-2">0{index + 1}</div>
+              <h3 className="text-[20px] font-semibold text-foreground mb-2">
                 {principle.title}
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-base text-muted-foreground leading-relaxed">
                 {principle.description}
               </p>
             </div>
