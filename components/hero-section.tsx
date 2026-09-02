@@ -43,7 +43,7 @@ export function HeroSection() {
           <Reveal>
             <div className="inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/5 px-4 py-2 text-xs font-semibold tracking-wide text-indigo-400">
               <span className="h-2 w-2 rounded-full bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.5)] motion-safe:animate-pulse" />
-              Open to CS Ops, RevOps, and customer operations roles
+              Let’s talk AI, Customer Success & Operations.
             </div>
           </Reveal>
 
@@ -51,10 +51,10 @@ export function HeroSection() {
             <h1 className="mb-3 text-4xl font-bold leading-[1.08] tracking-tighter text-white sm:text-5xl md:text-4xl lg:text-5xl xl:text-7xl">
               Hi, I&apos;m Swajit.
               <span className="mt-2 block text-3xl text-zinc-500 sm:text-4xl md:text-3xl lg:text-4xl xl:text-5xl">
-                Customer Success Operations Manager
+                Customer Success Professional
               </span>
               <span className="mt-2 block text-2xl font-light italic text-zinc-600 sm:text-3xl md:text-2xl lg:text-3xl xl:text-4xl">
-                SaaS, RevOps, and post-sales systems
+                SaaS, RevOps, and Post-Sales Operations
               </span>
             </h1>
           </Reveal>
