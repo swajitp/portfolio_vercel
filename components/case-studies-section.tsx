@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AlertTriangle, ArrowUpRight, BarChart3, Clock, Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { SectionEyebrow } from "@/components/section-eyebrow";
@@ -12,6 +13,7 @@ const caseStudies = [
       "Built a live Customer Success dashboard tracking MAU/WAU, product engagement, and NPS across the full portfolio.",
     metrics: ["0.5% NRR lift", "1% retention improvement", "Real-time visibility"],
     tags: ["Dashboard", "KPIs", "Analytics"],
+    href: "/work/cs-intelligence",
   },
   {
     icon: AlertTriangle,
@@ -21,6 +23,7 @@ const caseStudies = [
       "Designed an AI-assisted churn-risk scoring system using 15+ checkpoints to identify at-risk accounts before notice.",
     metrics: ["2 of 3 churns predicted", "Early warning system", "Proactive outreach"],
     tags: ["Automation", "AI", "Retention"],
+    href: "/work/churn-risk-calculator",
   },
   {
     icon: Star,
@@ -67,64 +70,85 @@ export function CaseStudiesSection() {
 
           return (
             <Reveal key={study.title} delay={index * 100} className="group">
-              <article className="h-full cursor-default">
-                <div className="relative mb-4 aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-white/5 bg-zinc-900 shadow-2xl md:mb-6">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.22),transparent_34%),linear-gradient(135deg,rgba(39,39,42,0.95),rgba(9,9,11,0.98))]" />
-                  <div className="absolute inset-4 rounded-[1.1rem] border border-white/10 bg-black/20 p-4 transition-transform duration-700 group-hover:scale-[1.03]">
-                    <div className="flex h-full flex-col justify-between">
-                      <div className="flex items-start justify-between">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white backdrop-blur-md transition-colors group-hover:bg-white group-hover:text-black">
-                          <Icon className="h-5 w-5" />
-                        </div>
-                        <div className="flex h-10 w-10 translate-y-0 items-center justify-center rounded-full border border-white/20 bg-white/10 opacity-100 backdrop-blur-md transition-all duration-300 md:translate-y-2 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100">
-                          <ArrowUpRight className="h-4 w-4" />
-                        </div>
-                      </div>
-                      <div>
-                        <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-zinc-500">
-                          {study.category}
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          {study.metrics.slice(0, 2).map((metric) => (
-                            <Badge key={metric} variant="metric">
-                              {metric}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="absolute inset-0 bg-black/20 transition-colors duration-500 group-hover:bg-transparent" />
-                </div>
-
-                <div className="px-1">
-                  <div className="mb-3 flex items-start justify-between gap-3">
-                    <div>
-                      <h3 className="mb-1 text-lg font-bold text-white transition-colors group-hover:text-zinc-300 md:text-xl">
-                        {study.title}
-                      </h3>
-                      <p className="text-sm font-medium text-zinc-500">{study.category}</p>
-                    </div>
-                    <span className="rounded-md border border-zinc-800 px-2 py-0.5 font-mono text-xs text-zinc-600">
-                      2025
-                    </span>
-                  </div>
-                  <p className="mb-4 text-sm leading-relaxed text-zinc-400">
-                    {study.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 border-t border-white/5 pt-4">
-                    {study.tags.map((tag) => (
-                      <Badge key={tag} variant="tag">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
+              <article className={study.href ? "h-full cursor-pointer" : "h-full cursor-default"}>
+                {study.href ? (
+                  <Link
+                    href={study.href}
+                    className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                  >
+                    <StudyCard study={study} Icon={Icon} />
+                  </Link>
+                ) : (
+                  <StudyCard study={study} Icon={Icon} />
+                )}
               </article>
             </Reveal>
           );
         })}
-              </div>
+      </div>
     </section>
+  );
+}
+
+function StudyCard({
+  study,
+  Icon,
+}: {
+  study: (typeof caseStudies)[number];
+  Icon: (typeof caseStudies)[number]["icon"];
+}) {
+  return (
+    <>
+      <div className="relative mb-4 aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-white/5 bg-zinc-900 shadow-2xl md:mb-6">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.22),transparent_34%),linear-gradient(135deg,rgba(39,39,42,0.95),rgba(9,9,11,0.98))]" />
+        <div className="absolute inset-4 rounded-[1.1rem] border border-white/10 bg-black/20 p-4 transition-transform duration-700 group-hover:scale-[1.03]">
+          <div className="flex h-full flex-col justify-between">
+            <div className="flex items-start justify-between">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white backdrop-blur-md transition-colors group-hover:bg-white group-hover:text-black">
+                <Icon className="h-5 w-5" />
+              </div>
+              <div className="flex h-10 w-10 translate-y-0 items-center justify-center rounded-full border border-white/20 bg-white/10 opacity-100 backdrop-blur-md transition-all duration-300 md:translate-y-2 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100">
+                <ArrowUpRight className="h-4 w-4" />
+              </div>
+            </div>
+            <div>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-zinc-500">
+                {study.category}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {study.metrics.slice(0, 2).map((metric) => (
+                  <Badge key={metric} variant="metric">
+                    {metric}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="absolute inset-0 bg-black/20 transition-colors duration-500 group-hover:bg-transparent" />
+      </div>
+
+      <div className="px-1">
+        <div className="mb-3 flex items-start justify-between gap-3">
+          <div>
+            <h3 className="mb-1 text-lg font-bold text-white transition-colors group-hover:text-zinc-300 md:text-xl">
+              {study.title}
+            </h3>
+            <p className="text-sm font-medium text-zinc-500">{study.category}</p>
+          </div>
+          <span className="rounded-md border border-zinc-800 px-2 py-0.5 font-mono text-xs text-zinc-600">
+            2025
+          </span>
+        </div>
+        <p className="mb-4 text-sm leading-relaxed text-zinc-400">{study.description}</p>
+        <div className="flex flex-wrap gap-2 border-t border-white/5 pt-4">
+          {study.tags.map((tag) => (
+            <Badge key={tag} variant="tag">
+              {tag}
+            </Badge>
+          ))}
+        </div>
+      </div>
+    </>
   );
 }

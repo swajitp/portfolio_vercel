@@ -61,14 +61,14 @@ export function HeroSection() {
 
           <Reveal delay={200}>
             <p className="max-w-2xl text-base font-light leading-relaxed text-zinc-400 md:text-sm lg:text-base xl:text-2xl">
-              I build the systems behind customer success: onboarding programs, health dashboards,
-              and retention plays that give teams visibility and a clear way to execute.
+              I help customers succeed and grow, and build the onboarding, health, retention, and
+              operational systems that make that repeatable.
             </p>
           </Reveal>
 
           <Reveal delay={300}>
             <p className="text-sm font-medium text-zinc-500 md:text-base">
-              SaaS / EdTech / Vancouver, Canada
+              SaaS / EdTech / AI / Vancouver, Canada
             </p>
           </Reveal>
 

@@ -6,31 +6,31 @@ import { Reveal } from "@/components/reveal";
 const competencies = [
   {
     icon: Users,
-    title: "Customer Success Strategy",
+    title: "Customer Success & Growth",
     description:
-      "Customer lifecycle design, onboarding programs, health scoring, and churn prevention systems.",
-    evidence: "Built health scoring and lifecycle programs managing $6M ARR",
+      "Onboarding, adoption, value realization, renewals, retention, and customer relationship management.",
+    evidence: "Managed 120 B2B SaaS accounts with 95% logo retention and 115% NRR.",
   },
   {
     icon: BarChart3,
-    title: "Operations & Analytics",
+    title: "Customer Health & Analytics",
     description:
-      "KPI dashboards, NPS/NRR tracking, MAU/WAU analytics, and data-driven decision making.",
-    evidence: "Delivered NRR lift and MAU/WAU dashboards across 8 CS pods",
+      "Customer health, churn risk, MAU/WAU, NPS, adoption signals, and performance dashboards.",
+    evidence: "Built churn-risk models that identified 2 of 3 potential churns before notice.",
   },
   {
     icon: Zap,
-    title: "Process Automation",
+    title: "Operations & Automation",
     description:
-      "Workflow automation, SOP development, CRM optimization, and cross-functional playbooks.",
-    evidence: "Automated workflows in Zapier and n8n; built 20+ SOPs and SLAs",
+      "Workflow automation, SOPs, SLAs, playbooks, CRM processes, and scalable customer operations.",
+    evidence: "Built systems and workflows supporting Customer Success across 8 teams.",
   },
   {
     icon: Target,
-    title: "Revenue Operations",
+    title: "Leadership & Programs",
     description:
-      "RevOps infrastructure, billing systems, payment cycle optimization, and GTM execution.",
-    evidence: "Cut payment cycles from 60+ to 30 days through RevOps optimization",
+      "Team leadership, cross-functional collaboration, enablement, support, and program management.",
+    evidence: "Scaled post-sales operations to ~90 team members and 250+ simultaneous sessions.",
   },
 ];
 

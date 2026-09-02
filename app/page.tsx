@@ -4,6 +4,7 @@ import { CompetenciesSection } from "@/components/competencies-section";
 import { ToolsStackSection } from "@/components/tools-stack-section";
 import { CaseStudiesSection } from "@/components/case-studies-section";
 import { ExperienceSection } from "@/components/experience-section";
+import { TestimonialsSection } from "@/components/testimonials-section";
 import { EducationSection } from "@/components/education-section";
 import { ContactSection } from "@/components/contact-section";
 import { Footer } from "@/components/footer";
@@ -17,6 +18,7 @@ export default function Home() {
       <ToolsStackSection />
       <CaseStudiesSection />
       <ExperienceSection />
+      <TestimonialsSection />
       <EducationSection />
       <ContactSection />
       <Footer />

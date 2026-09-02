@@ -10,15 +10,22 @@ export function ContactSection() {
         <div className="relative z-10">
           <SectionEyebrow>CONTACT</SectionEyebrow>
           <h2 className="mx-auto mt-8 max-w-4xl text-4xl font-bold tracking-tighter text-white md:text-7xl">
-            Building a stronger post-sales engine?
+            Helping customers succeed. Building operations that scale.
           </h2>
           <p className="mx-auto mt-8 max-w-xl text-xl font-light leading-relaxed text-zinc-400">
-            Open to customer success operations, RevOps, post-sales strategy, and
-            operations transformation roles where scalable systems matter.
+            Open to{" "}
+            <strong className="font-semibold text-zinc-200">
+              Customer Success and Operations roles
+            </strong>{" "}
+            where I can improve customer outcomes, solve complex problems, and build better ways of
+            working.
           </p>
 
           <p className="mx-auto mt-5 max-w-xl text-sm text-zinc-500">
-            Open to full-time CS Ops and RevOps roles in Vancouver, available immediately.
+            <strong className="font-semibold text-zinc-400">
+              Open to full-time opportunities in Vancouver and remote across Canada. Available
+              immediately.
+            </strong>
           </p>
 
           <div className="mt-12 flex flex-col items-center justify-center gap-5 md:flex-row">
