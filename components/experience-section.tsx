@@ -61,10 +61,11 @@ const experiences: ExperienceItem[] = [
   {
     company: "Intellipaat",
     companyUrl: "https://intellipaat.com/",
-    period: "2021 - 2022",
+    period: "2020 - 2022",
     roles: [
       {
         role: "Head of Operations (Customer Success & Post-Sales)",
+        period: "2021 - 2022",
         type: "EdTech, Online Learning Platform",
         context: "EdTech · India",
         metrics: ["~90 member org", "250+ live sessions", "80%+ SLA"],
@@ -72,15 +73,9 @@ const experiences: ExperienceItem[] = [
           "Scaled post-sales operations to ~90 team members while building SOPs, SLAs, and quality systems supporting 250+ simultaneous sessions.",
         ],
       },
-    ],
-  },
-  {
-    company: "Intellipaat",
-    companyUrl: "https://intellipaat.com/",
-    period: "2020 - 2021",
-    roles: [
       {
         role: "Manager, Customer Operations & Technical Support",
+        period: "2020 - 2021",
         type: "EdTech, Online Learning Platform",
         context: "EdTech · India",
         metrics: ["50+ team members", "40-45 NPS", "12-15× review growth"],
@@ -140,25 +135,25 @@ export function ExperienceSection() {
             <div className="space-y-8">
               {experiences.map((exp, index) => (
                 <article
-              key={index}
-              role={exp.detailUrl ? "link" : undefined}
-              tabIndex={exp.detailUrl ? 0 : undefined}
-              onClick={() => {
-                if (exp.detailUrl) router.push(exp.detailUrl);
-              }}
-              onKeyDown={(event) => {
-                if (exp.detailUrl && (event.key === "Enter" || event.key === " ")) {
-                  event.preventDefault();
-                  router.push(exp.detailUrl);
-                }
-              }}
-                  className={`group relative border-l border-white/10 pl-6 transition-colors hover:border-white ${
-                exp.detailUrl
+                  key={index}
+                  role={exp.detailUrl ? "link" : undefined}
+                  tabIndex={exp.detailUrl ? 0 : undefined}
+                  onClick={() => {
+                    if (exp.detailUrl) router.push(exp.detailUrl);
+                  }}
+                  onKeyDown={(event) => {
+                    if (exp.detailUrl && (event.key === "Enter" || event.key === " ")) {
+                      event.preventDefault();
+                      router.push(exp.detailUrl);
+                    }
+                  }}
+                  className={`group relative border-l border-white/10 pl-7 transition-colors hover:border-white ${
+                    exp.detailUrl
                       ? "cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
-                  : ""
-              }`}
-            >
-                  <div className="mb-1 flex flex-col justify-between gap-2 sm:flex-row sm:items-baseline">
+                      : ""
+                  }`}
+                >
+                  <div className="mb-5 flex flex-col justify-between gap-2 sm:flex-row sm:items-baseline">
                     <a
                       href={exp.companyUrl}
                       target="_blank"
@@ -173,12 +168,18 @@ export function ExperienceSection() {
                     <span className="font-mono text-xs text-zinc-500">{exp.period}</span>
                   </div>
 
-                  <div className="space-y-6">
+                  <div className="relative space-y-7">
+                    {exp.roles.length > 1 ? (
+                      <span className="absolute bottom-8 left-1.5 top-3 w-px bg-white/10 transition-colors group-hover:bg-white/20" />
+                    ) : null}
                     {exp.roles.map((role, roleIndex) => (
                       <div
                         key={`${role.role}-${role.period}`}
-                        className={roleIndex > 0 ? "border-t border-white/10 pt-5" : ""}
+                        className={exp.roles.length > 1 ? "relative pl-8" : "relative"}
                       >
+                        {exp.roles.length > 1 ? (
+                          <span className="absolute left-0 top-2 h-3 w-3 rounded-full border border-white/15 bg-zinc-700 ring-4 ring-zinc-950 transition-colors group-hover:border-white/30 group-hover:bg-white" />
+                        ) : null}
                         <div className="mb-2 flex flex-col justify-between gap-1 sm:flex-row sm:items-baseline">
                           <div className="font-medium text-zinc-300">{role.role}</div>
                           {role.period ? (
