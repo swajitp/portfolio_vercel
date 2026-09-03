@@ -28,12 +28,21 @@ export const metadata: Metadata = {
     title: 'Swajit Patwari | Customer Success Operations Manager',
     description:
       'Customer Success Operations and SaaS Business Operations professional with 7+ years of experience. MBA candidate at SFU Beedie.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Swajit Patwari Portfolio',
+      },
+    ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'Swajit Patwari | Customer Success Operations Manager',
     description:
       'Customer Success Operations and SaaS Business Operations professional with 7+ years of experience. MBA candidate at SFU Beedie.',
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
@@ -49,16 +58,16 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
+        url: '/icon.svg',
+        type: 'image/svg+xml',
+      },
+      {
         url: '/icon-light-32x32.png',
         media: '(prefers-color-scheme: light)',
       },
       {
         url: '/icon-dark-32x32.png',
         media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
       },
     ],
     apple: '/apple-icon.png',
