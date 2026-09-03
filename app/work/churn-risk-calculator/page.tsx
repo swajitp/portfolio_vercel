@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ChurnRiskCaseStudy } from "@/components/churn-risk/churn-risk-case-study";
+import { ChurnRiskCalculatorClientPage } from "./client-page";
 
 export const metadata: Metadata = {
   title: "Churn Risk Calculator | Swajit Patwari",
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function ChurnRiskCalculatorPage() {
-  return <ChurnRiskCaseStudy />;
+  return <ChurnRiskCalculatorClientPage />;
 }
