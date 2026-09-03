@@ -1,4 +1,4 @@
-import { ArrowRight, Linkedin, Mail, Phone } from "lucide-react";
+import { Linkedin, Phone } from "lucide-react";
 import { SectionEyebrow } from "@/components/section-eyebrow";
 import { Reveal } from "@/components/reveal";
 
@@ -15,28 +15,13 @@ export function ContactSection() {
           <p className="mx-auto mt-8 max-w-xl text-xl font-light leading-relaxed text-zinc-400">
             Open to{" "}
             <strong className="font-semibold text-zinc-200">
-              Customer Success and Operations roles
+              Customer Success Manager and Operations roles
             </strong>{" "}
             where I can improve customer outcomes, solve complex problems, and build better ways of
             working.
           </p>
 
-          <p className="mx-auto mt-5 max-w-xl text-sm text-zinc-500">
-            <strong className="font-semibold text-zinc-400">
-              Open to full-time opportunities in Vancouver and remote across Canada. Available
-              immediately.
-            </strong>
-          </p>
-
           <div className="mt-12 flex flex-col items-center justify-center gap-5 md:flex-row">
-            <a
-              href="mailto:swajit.patwari@gmail.com"
-              className="group flex w-full max-w-full items-center justify-center gap-3 overflow-hidden rounded-full bg-white px-6 py-4 text-sm font-bold text-black transition-all hover:scale-105 hover:bg-zinc-200 active:scale-95 md:w-auto md:px-10 md:py-5 md:text-lg"
-            >
-              <Mail className="shrink-0" />
-              <span className="truncate">swajit.patwari@gmail.com</span>
-              <ArrowRight className="h-4 w-4 shrink-0 opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100" />
-            </a>
             <div className="flex gap-3 md:gap-4">
               <a
                 href="https://linkedin.com/in/swajit"

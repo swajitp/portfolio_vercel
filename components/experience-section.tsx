@@ -128,6 +128,42 @@ export function ExperienceSection() {
               </Badge>
             ))}
           </div>
+
+          <div className="mt-28 max-w-xl space-y-7 md:mt-36">
+            <p className="font-mono text-xs uppercase tracking-[0.28em] text-zinc-600">
+              HOW I WORK
+            </p>
+
+            <div className="space-y-3">
+              <h3 className="text-base font-semibold leading-snug text-zinc-200">
+                Customer first. Systems second.
+              </h3>
+              <p className="text-sm leading-7 text-zinc-500">
+                I&apos;ve spent my career close to customers, understanding where adoption stalls,
+                where risk appears, and what actually helps teams succeed.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <h3 className="text-base font-semibold leading-snug text-zinc-200">
+                Then I build the system around it.
+              </h3>
+              <p className="text-sm leading-7 text-zinc-500">
+                Health models, dashboards, playbooks, automations, and operating rhythms that make
+                good customer success repeatable.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <h3 className="text-base font-semibold leading-snug text-zinc-200">
+                The common thread
+              </h3>
+              <p className="text-sm leading-7 text-zinc-500">
+                Whether managing 120 SaaS accounts or scaling a 90-person operations team, my work
+                has consistently sat between customers, data, and operations.
+              </p>
+            </div>
+          </div>
         </Reveal>
 
         <Reveal delay={120} className="md:col-span-7">
