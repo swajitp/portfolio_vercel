@@ -335,7 +335,6 @@ export function HealthRiskSection() {
         <MetricCard label="Healthy" value="64%" detail="Portfolio mix" icon={<HeartPulse className="h-4 w-4" />} />
         <MetricCard label="Watch" value="24%" detail="Needs intervention" icon={<Activity className="h-4 w-4" />} />
         <MetricCard label="At Risk" value="12%" detail="Priority recovery" icon={<ShieldAlert className="h-4 w-4" />} />
-        <MetricCard label="Early warning" value="2 of 3" detail="Potential churns identified early" icon={<Sparkles className="h-4 w-4" />} />
       </div>
 
       <div className="grid gap-6 xl:grid-cols-2">
@@ -522,7 +521,7 @@ export function PipelineSection() {
         </ChartCard>
       </div>
 
-      <ChartCard eyebrow="Stage table" title="Expansion pipeline view">
+      <ChartCard eyebrow="Stage table" title="Growth pipeline view">
         <DashboardTable
           headers={["Stage", "Pipeline", "Deals", "CSM Question"]}
           rows={pipeline.map((stage) => [
@@ -551,8 +550,6 @@ export function ProductIntelligenceSection() {
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <MetricCard label="Open Bugs" value="29" detail="P0-P2 summary" icon={<Boxes className="h-4 w-4" />} />
         <MetricCard label="Open Tasks" value="60" detail="Product follow-through" icon={<Workflow className="h-4 w-4" />} />
-        <MetricCard label="P1 workload" value="68" detail="25 bugs + 43 tasks" icon={<ShieldAlert className="h-4 w-4" />} />
-        <MetricCard label="Traceability" value="Support → Product" detail="Customer issue context" icon={<Activity className="h-4 w-4" />} />
       </div>
 
       <div className="grid gap-6 xl:grid-cols-2">
@@ -590,22 +587,6 @@ export function ProductIntelligenceSection() {
         </ChartCard>
       </div>
 
-      <ChartCard
-        eyebrow="Traceability flow"
-        title="Customer-facing context connected to product work"
-        detail="This connected customer-facing support data with product engineering work so CS could understand customer impact and communicate escalations clearly."
-      >
-        <div className="flex gap-2 overflow-x-auto pb-2">
-          {["Customer", "Support Ticket", "Jira Issue", "Priority", "Owner", "Status", "Age"].map((step, index) => (
-            <div key={step} className="flex items-center gap-2">
-              <span className="min-w-[116px] rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-center text-xs font-semibold text-zinc-300">
-                {step}
-              </span>
-              {index < 6 ? <span className="text-zinc-600">→</span> : null}
-            </div>
-          ))}
-        </div>
-      </ChartCard>
     </div>
   );
 }

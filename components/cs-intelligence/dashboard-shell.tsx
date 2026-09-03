@@ -44,13 +44,13 @@ const sections = [
   },
   {
     id: "expansion-pipeline",
-    label: "Expansion Pipeline",
+    label: "Growth Pipeline",
     icon: CircleDollarSign,
     component: PipelineSection,
   },
   {
     id: "product-intelligence",
-    label: "Product Intelligence",
+    label: "Active Product Bugs and Issues",
     icon: Boxes,
     component: ProductIntelligenceSection,
   },
