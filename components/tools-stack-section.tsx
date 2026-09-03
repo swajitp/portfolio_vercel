@@ -19,7 +19,7 @@ const tools = [
 
 export function ToolsStackSection() {
   return (
-    <section className="site-container py-8 md:py-10">
+    <section id="ai-projects" className="site-container py-8 md:py-10">
       <Reveal>
         <div className="flex flex-col gap-5 border-y border-white/5 py-6 md:flex-row md:items-center md:gap-8">
           <SectionEyebrow>STACK & TOOLS</SectionEyebrow>

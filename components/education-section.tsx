@@ -16,7 +16,7 @@ const education: EducationItem[] = [
     degree: "MBA | Business Analytics and Digital Transformation",
     school: "Simon Fraser University, Beedie School of Business",
     location: "Vancouver, Canada",
-    period: "2025 – 2026 (Graduating May 2026)",
+    period: "2025 – 2026",
   },
   {
     degree: "Bachelor of Engineering | Mechanical Engineering",

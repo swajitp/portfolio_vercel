@@ -12,7 +12,6 @@ import {
   MessageSquareText,
   ShieldAlert,
 } from "lucide-react";
-import { SectionEyebrow } from "@/components/section-eyebrow";
 import { ToolChips } from "@/components/cs-intelligence/dashboard-ui";
 import {
   EngagementSection,
@@ -26,8 +25,8 @@ import { tools } from "@/data/cs-intelligence";
 
 const sections = [
   {
-    id: "overview",
-    label: "Overview",
+    id: "customer-360",
+    label: "Customer 360",
     icon: LayoutDashboard,
     component: OverviewSection,
   },
@@ -92,7 +91,6 @@ export function DashboardShell() {
                   </div>
                   <div>
                     <p className="font-semibold text-white">CS Intelligence</p>
-                    <p className="text-xs text-zinc-500">Portfolio case study</p>
                   </div>
                 </div>
                 <nav className="space-y-2" aria-label="Dashboard sections">
@@ -125,24 +123,12 @@ export function DashboardShell() {
           </aside>
 
           <div className="min-w-0">
-            <header className="mb-8">
-              <SectionEyebrow>CASE STUDY DASHBOARD</SectionEyebrow>
-              <div className="mt-6 flex flex-col gap-6 xl:flex-row xl:items-end xl:justify-between">
-                <div>
-                  <h1 className="max-w-4xl text-4xl font-bold tracking-tight text-white md:text-6xl">
-                    Customer Success Intelligence System
-                  </h1>
-                  <p className="mt-5 max-w-3xl text-base leading-relaxed text-zinc-400 md:text-lg">
-                    A connected operating layer across customer health, engagement, product issues,
-                    retention, and expansion.
-                  </p>
-                </div>
-                <div className="xl:max-w-sm">
-                  <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-zinc-500">
-                    Tools used
-                  </p>
-                  <ToolChips tools={tools} />
-                </div>
+            <header className="mb-8 flex justify-end">
+              <div className="xl:max-w-sm">
+                <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-zinc-500">
+                  Tools used
+                </p>
+                <ToolChips tools={tools} />
               </div>
             </header>
 

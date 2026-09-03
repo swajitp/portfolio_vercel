@@ -6,16 +6,16 @@ import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { label: "Work", href: "#case-studies" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Education", href: "#education" },
-  { label: "Contact", href: "#contact" },
+  { label: "Summary", href: "#home", aiAccent: false },
+  { label: "AI ✨ & Projects", href: "#ai-projects", aiAccent: true },
+  { label: "Experience", href: "#experience", aiAccent: false },
+  { label: "Education", href: "#education", aiAccent: false },
+  { label: "Contact", href: "#contact", aiAccent: false },
 ];
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeHref, setActiveHref] = useState("#case-studies");
+  const [activeHref, setActiveHref] = useState("#home");
   const menuRef = useRef<HTMLDivElement>(null);
   const navMenuRef = useRef<HTMLDivElement>(null);
   const linkRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
@@ -116,7 +116,7 @@ export function Header() {
       </nav>
 
       <nav className="hidden w-full px-4 pt-6 md:block">
-        <div className="mx-auto flex max-w-3xl items-center justify-between rounded-full border border-white/10 bg-black/70 px-6 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.6)] backdrop-blur-2xl">
+        <div className="mx-auto flex max-w-4xl items-center justify-between rounded-full border border-white/10 bg-black/70 px-6 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.6)] backdrop-blur-2xl">
         <Link
           href="/"
             className="pl-2 text-xl font-bold tracking-tighter text-white transition-opacity duration-200 hover:opacity-80"
@@ -148,7 +148,14 @@ export function Header() {
                   activeHref === item.href && "text-white",
               )}
             >
-              {item.label}
+              {item.aiAccent ? (
+                <>
+                  <span className="font-semibold text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.22)]">AI ✨</span>
+                  <span className="text-zinc-400"> &amp; Projects</span>
+                </>
+              ) : (
+                item.label
+              )}
             </Link>
           ))}
         </div>
@@ -197,7 +204,14 @@ export function Header() {
               onClick={() => setIsMenuOpen(false)}
               className="border-b border-white/10 pb-4 text-white transition-colors hover:text-zinc-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
             >
-              {item.label}
+              {item.aiAccent ? (
+                <>
+                  <span className="font-semibold text-white">AI ✨</span>
+                  <span className="text-zinc-400"> &amp; Projects</span>
+                </>
+              ) : (
+                item.label
+              )}
             </Link>
           ))}
           <a

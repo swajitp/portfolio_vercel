@@ -109,9 +109,9 @@ export function ExperienceSection() {
   return (
     <section id="experience" className="site-container py-20">
       <div className="grid gap-12 md:grid-cols-12">
-        <Reveal className="md:col-span-5">
+        <Reveal className="md:col-span-4">
           <SectionEyebrow>EXPERIENCE</SectionEyebrow>
-          <h2 className="mt-6 text-4xl font-bold tracking-tight text-white">
+          <h2 className="mt-6 text-3xl font-bold tracking-tight text-white md:text-4xl">
             Work Experience
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-zinc-400">
@@ -129,45 +129,10 @@ export function ExperienceSection() {
             ))}
           </div>
 
-          <div className="mt-28 max-w-xl space-y-7 md:mt-36">
-            <p className="font-mono text-xs uppercase tracking-[0.28em] text-zinc-600">
-              HOW I WORK
-            </p>
-
-            <div className="space-y-3">
-              <h3 className="text-base font-semibold leading-snug text-zinc-200">
-                Customer first. Systems second.
-              </h3>
-              <p className="text-sm leading-7 text-zinc-500">
-                I&apos;ve spent my career close to customers, understanding where adoption stalls,
-                where risk appears, and what actually helps teams succeed.
-              </p>
-            </div>
-
-            <div className="space-y-3">
-              <h3 className="text-base font-semibold leading-snug text-zinc-200">
-                Then I build the system around it.
-              </h3>
-              <p className="text-sm leading-7 text-zinc-500">
-                Health models, dashboards, playbooks, automations, and operating rhythms that make
-                good customer success repeatable.
-              </p>
-            </div>
-
-            <div className="space-y-3">
-              <h3 className="text-base font-semibold leading-snug text-zinc-200">
-                The common thread
-              </h3>
-              <p className="text-sm leading-7 text-zinc-500">
-                Whether managing 120 SaaS accounts or scaling a 90-person operations team, my work
-                has consistently sat between customers, data, and operations.
-              </p>
-            </div>
-          </div>
         </Reveal>
 
-        <Reveal delay={120} className="md:col-span-7">
-          <div className="section-panel h-full p-6 transition-colors hover:border-white/10 md:p-8">
+        <Reveal delay={120} className="md:col-span-8">
+          <div className="section-panel h-full border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.025),transparent_42%)] p-6 transition-colors hover:border-white/15 md:p-8 lg:p-9">
             <div className="space-y-8">
               {experiences.map((exp, index) => (
                 <article
@@ -196,7 +161,7 @@ export function ExperienceSection() {
                       rel="noopener noreferrer"
                       onClick={(event) => event.stopPropagation()}
                       onKeyDown={(event) => event.stopPropagation()}
-                      className="inline-flex w-fit items-center gap-2 rounded-sm text-xl font-bold text-white transition-colors hover:text-zinc-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                      className="inline-flex w-fit items-center gap-2 rounded-sm text-xl font-bold tracking-tight text-white transition-colors hover:text-zinc-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 lg:text-2xl"
                     >
                       {exp.company}
                       <ExternalLink className="h-4 w-4 text-zinc-500" />
@@ -217,7 +182,7 @@ export function ExperienceSection() {
                           <span className="absolute left-0 top-2 h-3 w-3 rounded-full border border-white/15 bg-zinc-700 ring-4 ring-zinc-950 transition-colors group-hover:border-white/30 group-hover:bg-white" />
                         ) : null}
                         <div className="mb-2 flex flex-col justify-between gap-1 sm:flex-row sm:items-baseline">
-                          <div className="font-medium text-zinc-300">{role.role}</div>
+                          <div className="text-base font-semibold leading-snug text-zinc-100 lg:text-lg">{role.role}</div>
                           {role.period ? (
                             <span className="font-mono text-xs text-zinc-500">
                               {role.period}
@@ -225,7 +190,7 @@ export function ExperienceSection() {
                           ) : null}
                         </div>
                         {role.type && role.context ? (
-                          <p className="mb-4 text-sm text-zinc-500">
+                          <p className="mb-4 text-sm text-zinc-400">
                             {role.type} · {role.context}
                           </p>
                         ) : null}
@@ -242,7 +207,7 @@ export function ExperienceSection() {
                           {role.highlights.map((highlight, i) => (
                             <li
                               key={i}
-                              className="flex items-start gap-3 text-sm leading-relaxed text-zinc-400"
+                              className="flex items-start gap-3 text-sm leading-7 text-zinc-300"
                             >
                               <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-zinc-600 transition-colors group-hover:bg-white" />
                               <span>{highlight}</span>

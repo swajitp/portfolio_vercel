@@ -2158,3 +2158,83 @@
     font-size:40px !important;
   }
 }
+
+
+/* ===== V11 model selector: portfolio-scale cards ===== */
+.churn-risk-models .model-switch-shell{
+  padding-top:52px !important;
+  margin-bottom:30px !important;
+}
+.churn-risk-models .model-options{
+  width:min(900px,100%) !important;
+  gap:12px !important;
+}
+.churn-risk-models .model-option{
+  min-height:88px !important;
+  padding:14px 16px !important;
+  border-radius:14px !important;
+  grid-template-columns:40px minmax(0,1fr) auto !important;
+  gap:12px !important;
+  background:linear-gradient(180deg,#101011,#09090a) !important;
+  border-color:#2d2d31 !important;
+}
+.churn-risk-models .model-option:hover{
+  border-color:#46464c !important;
+  background:linear-gradient(180deg,#141416,#0b0b0c) !important;
+}
+.churn-risk-models .model-option.active{
+  border-color:#6f674d !important;
+  background:linear-gradient(180deg,#15130e,#0b0b09) !important;
+  box-shadow:inset 0 0 0 1px rgba(216,201,143,.05) !important;
+}
+.churn-risk-models .option-icon{
+  width:40px !important;
+  height:40px !important;
+}
+.churn-risk-models .option-meta{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:7px;
+}
+.churn-risk-models .option-meta>span{
+  color:#8d8465 !important;
+  font-size:8px !important;
+  font-weight:800 !important;
+  letter-spacing:.13em !important;
+}
+.churn-risk-models .option-meta>em{
+  border:1px solid #3b382d;
+  border-radius:999px;
+  background:#15130e;
+  padding:3px 7px;
+  color:#d8c98f;
+  font-size:8px;
+  font-style:normal;
+  font-weight:800;
+  letter-spacing:.05em;
+  white-space:nowrap;
+}
+.churn-risk-models .option-copy>strong{
+  margin:6px 0 0 !important;
+  font-size:15px !important;
+  line-height:1.2 !important;
+  white-space:normal !important;
+  overflow:visible !important;
+  text-overflow:clip !important;
+}
+.churn-risk-models .option-state{
+  min-width:52px !important;
+  font-size:8px !important;
+}
+.churn-risk-models .switch-divider{
+  margin-top:16px !important;
+  height:30px !important;
+}
+.churn-risk-models .switch-divider span{
+  font-size:8px !important;
+}
+@media(max-width:800px){
+  .churn-risk-models .model-options{width:100% !important;}
+  .churn-risk-models .model-option{min-height:78px !important;}
+}

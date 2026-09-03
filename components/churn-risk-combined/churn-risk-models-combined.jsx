@@ -534,7 +534,7 @@ function ModelSelector({active, setActive}) {
         >
           <div className="option-icon"><Scale size={17}/></div>
           <div className="option-copy">
-            <span>MODEL 01 · RULES-BASED</span>
+            <div className="option-meta"><span>MODEL 01 · RULES-BASED</span></div>
             <strong>Weighted Customer Health Index</strong>
           </div>
           <div className="option-state">{active === "weighted" ? "Viewing" : "Open"}</div>
@@ -548,7 +548,10 @@ function ModelSelector({active, setActive}) {
         >
           <div className="option-icon"><Sparkles size={17}/></div>
           <div className="option-copy">
-            <span>MODEL 02 · PREDICTIVE AI</span>
+            <div className="option-meta">
+              <span>MODEL 02 · PREDICTIVE AI</span>
+              <em>AI-enabled ✨</em>
+            </div>
             <strong>AI-Powered Churn Risk Intelligence</strong>
           </div>
           <div className="option-state">{active === "ai" ? "Viewing" : "Open"}</div>
