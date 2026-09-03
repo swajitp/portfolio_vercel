@@ -181,7 +181,7 @@ function PortfolioOverview() {
   );
 }
 
-function WeightedModel(){
+export function WeightedModel(){
  const [selectedId,setSelectedId]=useState("");
  const customer=useMemo(()=>customers.find(c=>String(c.id)===selectedId),[selectedId]);
  const score=customer?Math.round(customer.adoption.score*.35+customer.engagement.score*.25+customer.support.score*.20+customer.voc.score*.20):null;
@@ -311,7 +311,7 @@ function FlowArrow() {
   );
 }
 
-function AIModel() {
+export function AIModel() {
   return (
     <div className="ai-page"><main>
       <header className="hero">
@@ -338,175 +338,169 @@ function AIModel() {
         </a>
       </header>
 
-      <section className="workflow-section">
-        <div className="section-heading">
-          <div>
-            <div className="section-label">01 · LEARN FROM HISTORICAL OUTCOMES</div>
-            <h2>From customer history to a validated model</h2>
-          </div>
-          <p>
-            Model selection happens on training data. The untouched test set is
-            used only after a winner is chosen.
-          </p>
-        </div>
-
-        <div className="workflow-grid">
-          <article className="step-card compact">
-            <div className="step-head">
-              <span>01</span>
-              <Database size={20} />
+      <div className="ai-stage-flow">
+        <section className="workflow-section ai-flow-stage">
+          <div className="stage-marker" aria-hidden="true">1</div>
+          <div className="section-heading simplified-heading">
+            <div>
+              <div className="section-label">01 · LEARN FROM OLD CHURNED CUSTOMERS</div>
+              <h2>From historical customers to a validated churn model</h2>
             </div>
-            <strong>1,000</strong>
-            <h3>Historical customers</h3>
-            <p>Known behaviour + known churn outcome</p>
-          </article>
+          </div>
 
-          <FlowArrow />
+          <div className="ml-workflow" aria-label="Machine learning training and validation workflow">
+            <article className="ml-node source-node">
+              <div className="ml-node-head"><span>DATASET</span><Database size={20} /></div>
+              <strong>1,000</strong>
+              <h3>Historical customers</h3>
+              <p>Known behaviour + known churn outcome</p>
+            </article>
 
-          <article className="step-card compact">
-            <div className="step-head">
-              <span>02</span>
+            <div className="ml-connector source-to-split" aria-hidden="true"><span /></div>
+
+            <div className="split-node">
               <Split size={20} />
+              <span>50 / 50 SPLIT</span>
             </div>
-            <strong>500 / 500</strong>
-            <h3>Train / unseen test</h3>
-            <p>50% model development · 50% final validation</p>
-          </article>
 
-          <FlowArrow />
+            <div className="ml-branch training-branch" aria-hidden="true"><span /></div>
+            <div className="ml-branch test-branch" aria-hidden="true"><span /></div>
 
-          <article className="step-card models-card">
-            <div className="step-head">
-              <span>03</span>
-              <BrainCircuit size={20} />
-            </div>
-            <h3>3 models compete</h3>
-            <div className="model-list">
-              <div><span>Logistic Regression</span></div>
-              <div><span>Decision Tree</span></div>
-              <div className="winner-row"><span>Random Forest</span><Check size={14} /></div>
-            </div>
-          </article>
+            <article className="ml-node train-node">
+              <div className="ml-node-head"><span>TRAIN</span><BrainCircuit size={20} /></div>
+              <strong>500</strong>
+              <h3>Model development</h3>
+              <p>Three ML approaches learn from the training customers</p>
+            </article>
 
-          <FlowArrow />
+            <article className="ml-node test-node">
+              <div className="ml-node-head"><span>TEST</span><Search size={20} /></div>
+              <strong>500</strong>
+              <h3>Unseen validation set</h3>
+              <p>Held back until the winning model is selected</p>
+            </article>
 
-          <article className="step-card winner-card">
-            <div className="step-head">
-              <span>04</span>
-              <Trophy size={20} />
-            </div>
-            <div className="winner-kicker">WINNING MODEL</div>
-            <strong>Random Forest</strong>
-            <div className="metric-strip">
-              <div><b>93.2%</b><span>Recall</span></div>
-              <div><b>95.1%</b><span>Precision</span></div>
-              <div><b>0.988</b><span>ROC-AUC</span></div>
-            </div>
-            <p>Validated once on 500 unseen customers</p>
-          </article>
-        </div>
+            <div className="ml-connector train-to-models" aria-hidden="true"><span /></div>
 
-        <div className="interpretation-line">
-          <span><BrainCircuit size={17} /> Model signals</span>
-          <ArrowRight size={17} />
-          <span><Search size={17} /> Pattern analysis</span>
-          <ArrowRight size={17} />
-          <span>Business interpretation</span>
-        </div>
-      </section>
-
-      <section className="patterns-section">
-        <div className="section-heading pattern-heading">
-          <div>
-            <div className="section-label">02 · UNDERSTAND WHAT DRIVES RISK</div>
-            <h2>Historical churn patterns</h2>
-          </div>
-        </div>
-
-        <div className="pattern-list">
-          {patterns.map((pattern, index) => (
-            <article className="pattern-card" key={pattern.title}>
-              <span className="pattern-index">0{index + 1}</span>
-              <h3>{pattern.title}</h3>
-              <div className="pattern-evidence">
-                <div><strong>{pattern.churn}</strong><span>churn</span></div>
-                <div><strong>{pattern.lift}</strong><span>baseline lift</span></div>
-                <div><strong>{pattern.accounts}</strong><span>support</span></div>
+            <article className="ml-node models-node">
+              <div className="ml-node-head"><span>MODEL COMPETITION</span><BrainCircuit size={20} /></div>
+              <h3>3 models compete</h3>
+              <div className="model-list">
+                <div><span>Logistic Regression</span></div>
+                <div><span>Decision Tree</span></div>
+                <div className="winner-row"><span>Random Forest</span><Check size={14} /></div>
               </div>
             </article>
-          ))}
-        </div>
-      </section>
 
-      <section className="current-section">
-        <div className="section-heading current-heading">
-          <div>
-            <div className="section-label">03 · SCORE TODAY'S PORTFOLIO</div>
-            <h2>200 current customers enter the same trained model</h2>
-          </div>
-          <p>
-            Their churn outcome is unknown. The model scores probability so
-            Customer Success can focus human attention where it matters most.
-          </p>
-        </div>
+            <div className="ml-connector models-to-winner" aria-hidden="true"><span /></div>
 
-        <div className="current-flow">
-          <span><Users size={18} /> 200 current accounts</span>
-          <ArrowRight size={18} />
-          <span><BrainCircuit size={18} /> Random Forest</span>
-          <ArrowRight size={18} />
-          <span>Risk prioritization</span>
-        </div>
-
-        <div className="result-hero">
-          <div className="risk-focus">
-            <div className="risk-label"><AlertTriangle size={18} /> CHURN RISK</div>
-            <div className="risk-number">18</div>
-            <h3>of 200 customers identified for immediate review</h3>
-            <p>
-              The model narrows the portfolio to the accounts that deserve the
-              fastest CSM validation and intervention.
-            </p>
-          </div>
-
-          <div className="secondary-results">
-            <article>
-              <span>WATCH</span>
-              <strong>47</strong>
-              <p>Investigate emerging signals</p>
+            <article className="ml-node workflow-winner-node">
+              <div className="ml-node-head"><span>BEST ON THIS DATASET</span><Trophy size={20} /></div>
+              <strong>Random Forest</strong>
+              <p className="winner-context">The winning algorithm depends on the dataset. Different customer data may produce a different winner.</p>
             </article>
-            <article>
-              <span>HEALTHY</span>
-              <strong>135</strong>
-              <p>Monitor through normal cadence</p>
-            </article>
-            <article className="arr-result">
-              <span>ARR IN CHURN-RISK ACCOUNTS</span>
-              <strong>$1.93M</strong>
-              <p>Prioritized for Customer Success review</p>
+
+            <div className="ml-connector test-to-validation" aria-hidden="true"><span /></div>
+            <div className="ml-connector winner-to-validation" aria-hidden="true"><span /></div>
+
+            <article className="ml-node validation-node">
+              <div className="ml-node-head"><span>VALIDATE</span><Check size={20} /></div>
+              <h3>Test on 500 unseen customers</h3>
+              <div className="metric-strip">
+                <div><b>93.2%</b><span>Recall</span></div>
+                <div><b>95.1%</b><span>Precision</span></div>
+                <div><b>0.988</b><span>ROC-AUC</span></div>
+              </div>
             </article>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="action-section">
-        <div className="section-label">04 · TURN PREDICTION INTO ACTION</div>
-        <div className="action-flow">
-          <span>AI prioritizes</span>
-          <ArrowRight size={19} />
-          <span>CSM validates context</span>
-          <ArrowRight size={19} />
-          <span>CSM takes action</span>
-        </div>
-      </section>
+        <section className="patterns-section ai-flow-stage">
+          <div className="stage-marker" aria-hidden="true">2</div>
+          <div className="section-heading pattern-heading simplified-heading">
+            <div>
+              <div className="section-label">02 · UNDERSTAND WHAT IS CAUSING MAJOR RISKS</div>
+              <h2>Historical churn patterns</h2>
+            </div>
+          </div>
+
+          <div className="pattern-list">
+            {patterns.map((pattern, index) => (
+              <article className="pattern-card" key={pattern.title}>
+                <span className="pattern-index">0{index + 1}</span>
+                <h3>{pattern.title}</h3>
+                <div className="pattern-evidence">
+                  <div><strong>{pattern.churn}</strong><span>churn</span></div>
+                  <div><strong>{pattern.lift}</strong><span>baseline lift</span></div>
+                  <div><strong>{pattern.accounts}</strong><span>support</span></div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="pattern-to-deploy-bridge" aria-label="Patterns feed into current customer scoring">
+            <span className="bridge-line" aria-hidden="true" />
+            <BrainCircuit size={16} />
+            <span>These learned churn patterns carry into current-customer scoring below.</span>
+            <ArrowRight size={15} aria-hidden="true" />
+          </div>
+        </section>
+
+        <section className="current-section ai-flow-stage">
+          <div className="stage-marker" aria-hidden="true">3</div>
+          <div className="section-heading current-heading simplified-heading">
+            <div>
+              <div className="section-label">03 · DEPLOY THIS MODEL ON YOUR CURRENT CUSTOMERS</div>
+              <h2>200 current customers enter the trained model</h2>
+            </div>
+          </div>
+
+          <div className="current-flow">
+            <span><Users size={18} /> 200 current accounts</span>
+            <ArrowRight size={18} />
+            <span><BrainCircuit size={18} /> Random Forest</span>
+            <ArrowRight size={18} />
+            <span>Risk prioritization</span>
+          </div>
+
+          <div className="result-hero">
+            <div className="risk-focus">
+              <div className="risk-label"><AlertTriangle size={18} /> CHURN RISK</div>
+              <div className="risk-number">18</div>
+              <h3>NEW churn risk accounts found</h3>
+              <p>
+                The model narrows the portfolio to the accounts that deserve the
+                fastest CSM validation and intervention.
+              </p>
+            </div>
+
+            <div className="secondary-results">
+              <article>
+                <span>WATCH</span>
+                <strong>47</strong>
+                <p>Investigate emerging signals</p>
+              </article>
+              <article>
+                <span>HEALTHY</span>
+                <strong>135</strong>
+                <p>Monitor through normal cadence</p>
+              </article>
+              <article className="arr-result">
+                <span>ARR IN CHURN-RISK ACCOUNTS</span>
+                <strong>$1.93M</strong>
+                <p>Prioritized for Customer Success review</p>
+              </article>
+            </div>
+          </div>
+        </section>
+      </div>
 
       <section className="colab-cta">
         <div>
           <span>EXPLORE THE FULL MODEL</span>
           <h2>See the workflow run step-by-step in Google Colab</h2>
           <p>
-            Inspect the data split, model competition, unseen-test validation,
-            pattern analysis and current-customer scoring.
+            Make a copy and upload your customer data to find your next churn risks.
           </p>
         </div>
         <a href={COLAB_URL} target="_blank" rel="noreferrer">
@@ -521,16 +515,14 @@ function AIModel() {
   );
 }
 
-
-function ModelSelector({active, setActive}) {
+function ModelSelector({active}) {
   return (
     <section className="model-switch-shell">
-      <div className="model-options" role="tablist" aria-label="Choose churn risk model">
-        <button
+      <div className="model-options" aria-label="Choose churn risk model">
+        <a
           className={`model-option ${active === "weighted" ? "active" : ""}`}
-          onClick={() => setActive("weighted")}
-          role="tab"
-          aria-selected={active === "weighted"}
+          href="/work/churn-risk-calculator/1"
+          aria-current={active === "weighted" ? "page" : undefined}
         >
           <div className="option-icon"><Scale size={17}/></div>
           <div className="option-copy">
@@ -538,13 +530,12 @@ function ModelSelector({active, setActive}) {
             <strong>Weighted Customer Health Index</strong>
           </div>
           <div className="option-state">{active === "weighted" ? "Viewing" : "Open"}</div>
-        </button>
+        </a>
 
-        <button
+        <a
           className={`model-option ${active === "ai" ? "active" : ""}`}
-          onClick={() => setActive("ai")}
-          role="tab"
-          aria-selected={active === "ai"}
+          href="/work/churn-risk-calculator2"
+          aria-current={active === "ai" ? "page" : undefined}
         >
           <div className="option-icon"><Sparkles size={17}/></div>
           <div className="option-copy">
@@ -555,7 +546,7 @@ function ModelSelector({active, setActive}) {
             <strong>AI-Powered Churn Risk Intelligence</strong>
           </div>
           <div className="option-state">{active === "ai" ? "Viewing" : "Open"}</div>
-        </button>
+        </a>
       </div>
 
       <div className="switch-divider">
@@ -565,12 +556,12 @@ function ModelSelector({active, setActive}) {
   );
 }
 
-export function ChurnRiskModelsCombined() {
-  const [active, setActive] = useState("weighted");
+export function ChurnRiskModelsCombined({ initialActive = "weighted" }) {
+  const active = initialActive === "ai" ? "ai" : "weighted";
 
   return (
     <main className="churn-risk-models">
-      <ModelSelector active={active} setActive={setActive} />
+      <ModelSelector active={active} />
       <div className="model-stage">
         {active === "weighted" ? <WeightedModel /> : <AIModel />}
       </div>

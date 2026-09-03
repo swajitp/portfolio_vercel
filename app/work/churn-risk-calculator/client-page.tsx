@@ -5,7 +5,7 @@ import { ArrowLeft } from "lucide-react";
 import { ChurnRiskModelsCombined } from "@/components/churn-risk-combined/churn-risk-models-combined";
 import "@/components/churn-risk-combined/churn-risk-models-combined.css";
 
-export function ChurnRiskCalculatorClientPage() {
+export function ChurnRiskCalculatorClientPage({ initialActive = "weighted" }: { initialActive?: "weighted" | "ai" }) {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="mx-auto w-[min(1240px,92vw)] pt-8 md:pt-10">
@@ -17,7 +17,7 @@ export function ChurnRiskCalculatorClientPage() {
           Back to portfolio
         </Link>
       </div>
-      <ChurnRiskModelsCombined />
+      <ChurnRiskModelsCombined initialActive={initialActive} />
     </div>
   );
 }
