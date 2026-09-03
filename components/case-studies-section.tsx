@@ -242,12 +242,12 @@ function StudyCard({ study }: { study: (typeof caseStudies)[number] }) {
           <ProjectGraphic visual={study.visual} />
         </div>
         {study.aiEnabled ? (
-          <div className="pointer-events-none absolute left-6 top-6 inline-flex items-center rounded-full border border-white/15 bg-black/65 px-3 py-1.5 text-[10px] font-semibold tracking-[0.08em] text-zinc-200 backdrop-blur-sm">
+          <div className="pointer-events-none absolute right-6 top-6 inline-flex items-center rounded-full border border-white/15 bg-black/65 px-3 py-1.5 text-[10px] font-semibold tracking-[0.08em] text-zinc-200 backdrop-blur-sm">
             AI-enabled ✨
           </div>
         ) : null}
         {study.href ? (
-          <div className="pointer-events-none absolute right-6 top-6 flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-black/50 text-zinc-300 opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100">
+          <div className="pointer-events-none absolute right-6 top-16 flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-black/50 text-zinc-300 opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100">
             <ArrowUpRight className="h-4 w-4" />
           </div>
         ) : null}
