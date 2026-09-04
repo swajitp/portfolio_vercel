@@ -1,7 +1,7 @@
 "use client";
 
 import Script from "next/script";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 declare global {
@@ -11,35 +11,33 @@ declare global {
   }
 }
 
-const GA_MEASUREMENT_ID = "G-SL5FBZXTYF";
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-SL5FBZXTYF";
+let lastTrackedUrl: string | undefined;
 
-function GoogleAnalyticsPageView() {
+function GoogleAnalyticsPageView({ isReady }: { isReady: boolean }) {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (!GA_MEASUREMENT_ID) return;
+    if (!isReady || !GA_MEASUREMENT_ID || !window.gtag) return;
 
-    const sendPageView = () => {
-      if (!window.gtag) return false;
+    const pageLocation = window.location.href;
+    if (lastTrackedUrl === pageLocation) return;
 
-      window.gtag("config", GA_MEASUREMENT_ID, {
-        page_path: pathname,
-        page_location: window.location.href,
-      });
-
-      return true;
-    };
-
-    if (sendPageView()) return;
-
-    const retry = window.setTimeout(sendPageView, 500);
-    return () => window.clearTimeout(retry);
-  }, [pathname]);
+    lastTrackedUrl = pageLocation;
+    window.gtag("event", "page_view", {
+      send_to: GA_MEASUREMENT_ID,
+      page_path: pathname,
+      page_location: pageLocation,
+      page_title: document.title,
+    });
+  }, [isReady, pathname]);
 
   return null;
 }
 
 export function GoogleAnalytics() {
+  const [isReady, setIsReady] = useState(false);
+
   if (!GA_MEASUREMENT_ID) return null;
 
   return (
@@ -48,7 +46,11 @@ export function GoogleAnalytics() {
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         strategy="afterInteractive"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        onReady={() => setIsReady(true)}
+      >
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -56,7 +58,7 @@ export function GoogleAnalytics() {
           gtag('config', '${GA_MEASUREMENT_ID}', { send_page_view: false });
         `}
       </Script>
-      <GoogleAnalyticsPageView />
+      <GoogleAnalyticsPageView isReady={isReady} />
     </>
   );
 }
