@@ -11,17 +11,29 @@ declare global {
   }
 }
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const GA_MEASUREMENT_ID = "G-SL5FBZXTYF";
 
 function GoogleAnalyticsPageView() {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (!GA_MEASUREMENT_ID || !window.gtag) return;
+    if (!GA_MEASUREMENT_ID) return;
 
-    window.gtag("config", GA_MEASUREMENT_ID, {
-      page_path: pathname,
-    });
+    const sendPageView = () => {
+      if (!window.gtag) return false;
+
+      window.gtag("config", GA_MEASUREMENT_ID, {
+        page_path: pathname,
+        page_location: window.location.href,
+      });
+
+      return true;
+    };
+
+    if (sendPageView()) return;
+
+    const retry = window.setTimeout(sendPageView, 500);
+    return () => window.clearTimeout(retry);
   }, [pathname]);
 
   return null;
