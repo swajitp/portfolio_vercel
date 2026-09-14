@@ -1,4 +1,5 @@
-export const tools = ["Google Sheets", "Redash", "Power BI", "Looker Studio"];
+// Tools displayed on the CS Intelligence case study.
+export const tools = ["Google Sheets", "Redash", "Power BI", "Looker Studio", "Gainsight"];
 
 export const trend = [
   { month: "Jan", health: 71, adoption: 63, nps: 37 },
