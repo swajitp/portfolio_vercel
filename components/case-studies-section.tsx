@@ -1,15 +1,13 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   AlertTriangle,
   ArrowUpRight,
   BarChart3,
   Clock3,
   Gauge,
-  MessageSquareMore,
   MessageCircle,
   ReceiptText,
-  Star,
-  TrendingUp,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { SectionEyebrow } from "@/components/section-eyebrow";
@@ -39,14 +37,15 @@ const caseStudies = [
     aiEnabled: true,
   },
   {
-    visual: "reviews" as const,
-    title: "Support Review Growth System",
-    category: "Customer Experience",
+    visual: "knowledge" as const,
+    title: "n8n · AI Knowledge Base Automation",
+    category: "Knowledge & Automation",
     description:
-      "Transformed support operations by shifting from efficiency metrics to CSAT-focused performance goals.",
-    metrics: ["12-15x review increase", "NPS 40-45%", "95%+ trainer satisfaction"],
-    tags: ["Support Ops", "CSAT", "Reviews"],
-    aiEnabled: false,
+      "An independent n8n prototype that turns resolved support cases into reusable article drafts, with human review before publication.",
+    metrics: [],
+    tags: ["n8n", "Zoho Desk", "AI"],
+    href: "/work/knowledge-base-automation",
+    aiEnabled: true,
   },
   {
     visual: "revops" as const,
@@ -129,6 +128,28 @@ export function CaseStudiesSection() {
 function ProjectGraphic({ visual }: { visual: (typeof caseStudies)[number]["visual"] }) {
   const shell = "relative h-full w-full overflow-hidden rounded-[1.1rem] border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.055),rgba(255,255,255,0.012))]";
 
+  if (visual === "knowledge") {
+    return (
+      <div className={shell}>
+        <div className="absolute inset-x-0 bottom-0 opacity-30">
+          <Image
+            src="/images/knowledge-base/n8n-workflow.png"
+            alt=""
+            width={2048}
+            height={914}
+            sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+            className="h-auto w-full"
+          />
+        </div>
+        <div className="absolute inset-x-4 top-10">
+          <div className="text-5xl font-bold tracking-tighter text-[#c9bb82]">n8n</div>
+          <div className="mt-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-zinc-300">Knowledge, captured.</div>
+        </div>
+        <div className="absolute bottom-3 left-4 rounded-full border border-white/10 bg-black/75 px-2.5 py-1 text-[9px] text-zinc-300">Human review required</div>
+      </div>
+    );
+  }
+
   if (visual === "dashboard") {
     return (
       <div className={shell}>
@@ -179,31 +200,6 @@ function ProjectGraphic({ visual }: { visual: (typeof caseStudies)[number]["visu
     );
   }
 
-  if (visual === "reviews") {
-    return (
-      <div className={shell}>
-        <div className="absolute left-4 right-4 top-4 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-500">
-            <MessageSquareMore className="h-4 w-4 text-zinc-300" /> Customer voice
-          </div>
-          <TrendingUp className="h-4 w-4 text-zinc-500" />
-        </div>
-        <div className="absolute left-4 right-4 top-12 rounded-xl border border-white/10 bg-black/20 p-3">
-          <div className="flex items-center gap-1">
-            {[0, 1, 2, 3, 4].map((i) => (
-              <Star key={i} className={`h-3.5 w-3.5 ${i < 4 ? "fill-zinc-300 text-zinc-300" : "text-zinc-700"}`} />
-            ))}
-          </div>
-          <div className="mt-4 flex h-16 items-end gap-2">
-            {[24, 35, 48, 62, 82].map((height, i) => (
-              <div key={i} className="flex-1 rounded-t-sm border border-white/5 bg-zinc-500/70" style={{ height: `${height}%` }} />
-            ))}
-          </div>
-          <div className="mt-2 flex justify-between text-[9px] text-zinc-600"><span>Before</span><span>Review growth</span></div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className={shell}>

@@ -1,0 +1,41 @@
+/* Values follow the AI model at /work/churn-risk-calculator2. Scoped to this case study. */
+.titleAccent{color:var(--accent)}
+.page{--bg:#030303;--panel:#0b0b0c;--line:#262628;--text:#f5f4f2;--muted:#8d8d93;--accent:#c9bb82;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+.container{width:min(1240px,92vw);margin:auto;padding:32px 0 56px}
+.back,.cta{display:inline-flex;align-items:center;gap:9px;font-size:13px;text-decoration:none;transition:background .2s ease,border-color .2s ease}
+.back{border:1px solid var(--line);border-radius:999px;padding:9px 15px;color:#bdbdc2;background:#0d0d0e}
+.back:hover,.imageButton:hover{border-color:#746b4f;background:#11110f}
+.page a:focus-visible,.page button:focus-visible,.page summary:focus-visible{outline:2px solid var(--accent);outline-offset:5px}
+.hero{padding:44px 0 34px;border-bottom:1px solid #19191a}
+.eyebrow{font-size:10px;letter-spacing:.16em;color:#98989e;font-weight:800;line-height:1.6}
+.hero h1{font-size:52px;line-height:1.02;letter-spacing:-.055em;margin:13px 0 18px;font-weight:700}
+.subtitle{max-width:770px;color:#96969c;font-size:16px;line-height:1.68}
+.tags{display:flex;flex-wrap:wrap;gap:7px;list-style:none;padding:0;margin:22px 0}
+.tags li,.pill{border:1px solid #2d2d31;border-radius:999px;padding:6px 10px;font-size:11px;color:#a9a9af;background:#0a0a0b}
+.cta{color:var(--accent);font-weight:650;padding:6px 0}
+.context{max-width:790px;color:var(--muted);font-size:12px;line-height:1.7;margin-top:22px}
+.section{padding:42px 0;border-bottom:1px solid #19191a;scroll-margin-top:24px}
+.heading{margin-bottom:20px}.heading h2,.close h2{font-size:28px;letter-spacing:-.035em;line-height:1.15;margin:7px 0 0;font-weight:650}
+.comparison{display:grid;grid-template-columns:1.2fr 1fr;gap:16px}
+.card{min-width:0;border:1px solid var(--line);border-radius:15px;background:linear-gradient(180deg,#0f0f10,#09090a);padding:24px}
+.card p,.caption,.beats p,.close p{font-size:13px;line-height:1.65;color:var(--muted)}
+.card h3{font-size:19px;line-height:1.3;letter-spacing:-.025em;font-weight:650;margin:12px 0}
+.accentCard{border-color:#3c382b;background:linear-gradient(180deg,#11100d,#090909)}
+.comparison .flow{margin:20px 0}.comparison .node{font-size:11px;padding:10px 7px}.comparison .flow{gap:6px}.comparison .arrow{width:10px;flex-shrink:0}
+.flow{list-style:none;margin:0;padding:0;display:flex;gap:10px;align-items:stretch}
+.flow li{display:flex;flex:1;gap:10px;align-items:center;min-width:0}
+.flow li:first-child{gap:0}.node{flex:1;align-self:stretch;display:flex;flex-direction:column;justify-content:center;gap:5px;border:1px solid var(--line);border-radius:10px;padding:16px 12px;font-size:13px;line-height:1.4;background:#0b0b0c;min-width:0}
+.node small{font-size:10px;color:var(--muted)}.arrow{flex-shrink:0;color:#8e8565}
+.human{border-color:#746b4f;background:#17150f;color:#e5ddbc;font-weight:650}.human small{color:var(--accent)}
+.callout{border:1px solid #3c382b;border-radius:12px;background:#11100d;color:var(--accent);padding:15px 20px;margin-top:16px;font-size:14px;text-align:center;font-weight:600}
+.decisions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.decisionNumber{color:var(--accent);font-size:25px;letter-spacing:-.045em}
+.outcomes{display:grid;gap:8px;margin-top:22px}.outcomes .node{padding:10px;font-size:11px}.outcomes .flow li:first-child{flex:1.45}
+.exampleNote{font-size:11px;color:var(--muted);margin:-7px 0 22px}.example{display:grid;grid-template-columns:1.2fr 1fr;gap:32px}.beats{display:grid;gap:22px}.beats blockquote{font-size:23px;line-height:1.4;letter-spacing:-.025em;margin:10px 0 0}.beats p{margin:8px 0 0}.beats .flow{margin-top:12px}.beats .node{font-size:12px}
+.draft{padding:28px;border-color:#3c382b}.draftTop{display:flex;justify-content:space-between;align-items:center;gap:10px;color:var(--accent);margin-bottom:28px}.pill{color:var(--accent);font-size:9px;letter-spacing:.06em}.draft h3{font-size:24px;margin:12px 0 16px}.review{display:flex;gap:12px;align-items:center;border-top:1px solid #3c382b;padding-top:20px;margin-top:24px;color:var(--accent);font-size:13px}.review small{color:var(--muted);font-size:11px}
+.imageButton{display:block;width:100%;padding:0;border:1px solid var(--line);border-radius:15px;overflow:hidden;background:var(--panel);cursor:zoom-in;transition:border-color .2s ease;text-align:left}.imageButton img{width:100%;height:auto;display:block}.imageButton>span{display:flex;justify-content:flex-end;align-items:center;gap:8px;padding:12px 16px;color:var(--accent);font-size:11px;border-top:1px solid var(--line)}
+.caption{margin:18px 0 0;max-width:820px}.details{font-size:11px;color:var(--muted);margin-top:12px}.details summary{cursor:pointer;width:fit-content}.details p{max-width:760px;line-height:1.7}
+.close{padding:50px 0 12px;text-align:center}.close h2{font-size:32px}.close p{max-width:660px;margin:18px auto 28px}.close small{display:block;font-size:10px;line-height:1.6;color:var(--muted)}
+@media(max-width:1100px){.comparison{grid-template-columns:1fr 1fr}.comparison .flow{flex-direction:column}.comparison .flow li{flex-direction:column;gap:6px}.comparison .node{width:100%}.comparison .arrow{transform:rotate(90deg);width:16px}.card{padding:18px}}
+@media(max-width:800px){.hero h1{font-size:40px}.decisions,.example,.comparison{grid-template-columns:1fr}.flow{flex-direction:column;gap:7px}.flow li{flex-direction:column;gap:7px}.node{width:100%;padding:12px}.arrow{transform:rotate(90deg)}.section{padding:32px 0}.hero{padding-top:32px}.outcomes .flow{flex-direction:row}.outcomes .flow li{flex-direction:row}.outcomes .arrow{transform:none}.outcomes .node{width:auto}.draftTop{margin-bottom:22px}.example{gap:24px}}
+@media(max-width:480px){.hero h1{font-size:36px}.desktopBreak{display:none}.subtitle{font-size:14px}.heading h2{font-size:25px}.close h2{font-size:27px}.beats blockquote{font-size:21px}}
+@media(max-width:800px){.outcomes .flow{flex-direction:column}.outcomes .flow li{flex-direction:column}.outcomes .node{width:100%}.outcomes .arrow{transform:rotate(90deg)}}

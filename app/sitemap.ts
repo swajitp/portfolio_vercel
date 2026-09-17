@@ -7,6 +7,7 @@ const baseUrl = "https://swajitpatwari.com";
 const routes = [
   "",
   "/work/cs-intelligence",
+  "/work/knowledge-base-automation",
   "/work/churn-risk-calculator",
   "/wooqer-experience",
   "/wooqer-experience/map",
