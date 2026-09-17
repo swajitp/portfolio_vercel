@@ -25,6 +25,7 @@ const decisions = [
 ];
 
 export default function KnowledgeBasePage() {
+  // Keep the workflow directly after the hero so visitors see the prototype first.
   return <main className={styles.page}><div className={styles.container}>
     <Link href="/#case-studies" className={styles.back}><ArrowLeft size={15} aria-hidden="true" /> Back to portfolio</Link>
     <header className={styles.hero}>
@@ -32,11 +33,17 @@ export default function KnowledgeBasePage() {
       <h1><span className={styles.titleAccent}>n8n</span> · AI Knowledge<br className={styles.desktopBreak} /> Base Automation</h1>
       <p className={styles.subtitle}>Turning resolved support cases into reusable customer knowledge — without adding a single task to the support agent&apos;s plate.</p>
       <ul className={styles.tags} aria-label="Tools and disciplines">{["n8n", "Zoho Desk", "AI", "Knowledge Management", "Customer Success Operations"].map(tag => <li key={tag}>{tag}</li>)}</ul>
-      <a href="#the-problem" className={styles.cta}>See how it works <ArrowDown size={16} aria-hidden="true" /></a>
+      <a href="#workflow" className={styles.cta}>See how it works <ArrowDown size={16} aria-hidden="true" /></a>
       <p className={styles.context}>I previously managed a manual version of this process at Wooqer. I rebuilt it independently in n8n to explore how AI could remove the administrative overhead. This is a personal prototype, not a Wooqer deployment.</p>
     </header>
 
-    <Section number="01" label="THE PROBLEM" title="Solve the problem. Lose the knowledge." id="the-problem">
+    <Section number="01" label="THE ACTUAL WORKFLOW" title="The automation behind the idea." id="workflow">
+      <WorkflowImage />
+      <p className={styles.caption}>Here&apos;s what that decision-making looks like as an actual automation — each box is a step the system takes on its own.</p>
+      <details className={styles.details}><summary>A note on the prototype</summary><p>The screenshot shows qualification, duplicate checking, drafting, tracking and reviewer notification. The information-sufficiency decision is part of the intended drafting logic; this image alone does not verify that safeguard.</p></details>
+    </Section>
+
+    <Section number="02" label="THE PROBLEM" title="Solve the problem. Lose the knowledge." id="the-problem">
       <div className={styles.comparison}>
         <article className={styles.card}><div className={styles.eyebrow}>BEFORE · MANUAL, EASY TO SKIP</div>
           <Flow label="Manual knowledge capture" steps={["Customer solved", "Agent remembers to document", "Checks for duplicates", "Writes article", "Updates tracker", "Sends for review"].map(label => ({ label }))} />
@@ -50,14 +57,14 @@ export default function KnowledgeBasePage() {
       <div className={styles.callout}>Support agents solve customers. The system captures the knowledge.</div>
     </Section>
 
-    <Section number="02" label="THREE DECISIONS" title="Three decisions, one ticket.">
+    <Section number="03" label="THREE DECISIONS" title="Three decisions, one ticket.">
       <div className={styles.decisions}>{decisions.map((decision, index) => <article key={decision.question} className={styles.card}>
         <span className={styles.decisionNumber}>0{index + 1}</span><h3>{decision.question}</h3><p>{decision.body}</p>
         <div className={styles.outcomes}>{decision.outcomes.map(([label, outcome]) => <Flow key={label} label={`${label}: ${outcome}`} steps={[{ label }, { label: outcome, human: outcome === "Ask a human" }]} />)}</div>
       </article>)}</div>
     </Section>
 
-    <Section number="03" label="SEE IT WORK" title="One solved case. A reusable answer.">
+    <Section number="04" label="SEE IT WORK" title="One solved case. A reusable answer.">
       <p className={styles.exampleNote}>Based on a real support scenario. AI decisions and draft preview illustrate the prototype’s intended response.</p>
       <div className={styles.example}>
         <div className={styles.beats}>
@@ -73,12 +80,6 @@ export default function KnowledgeBasePage() {
           <div className={styles.review}><ShieldCheck size={20} aria-hidden="true" /><span>Human review required<br /><small>Check the instructions before publishing.</small></span></div>
         </article>
       </div>
-    </Section>
-
-    <Section number="04" label="THE ACTUAL WORKFLOW" title="The automation behind the idea.">
-      <WorkflowImage />
-      <p className={styles.caption}>Here&apos;s what that decision-making looks like as an actual automation — each box is a step the system takes on its own.</p>
-      <details className={styles.details}><summary>A note on the prototype</summary><p>The screenshot shows qualification, duplicate checking, drafting, tracking and reviewer notification. The information-sufficiency decision is part of the intended drafting logic; this image alone does not verify that safeguard.</p></details>
     </Section>
 
     <Section number="05" label="GOVERNANCE" title="Human review stays the gate.">
