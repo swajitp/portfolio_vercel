@@ -3,11 +3,8 @@ import Image from "next/image";
 import {
   AlertTriangle,
   ArrowUpRight,
-  BarChart3,
   Clock3,
-  Gauge,
   MessageCircle,
-  ReceiptText,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { SectionEyebrow } from "@/components/section-eyebrow";
@@ -125,6 +122,15 @@ export function CaseStudiesSection() {
   );
 }
 
+function GraphicTitle({ title, subtitle }: { title: string; subtitle: string }) {
+  return (
+    <div className="absolute inset-x-4 top-10 z-10">
+      <div className="text-5xl lg:text-[40px] xl:text-5xl font-bold tracking-tighter text-[#c9bb82]">{title}</div>
+      <div className="mt-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-zinc-300">{subtitle}</div>
+    </div>
+  );
+}
+
 function ProjectGraphic({ visual }: { visual: (typeof caseStudies)[number]["visual"] }) {
   const shell = "relative h-full w-full overflow-hidden rounded-[1.1rem] border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.055),rgba(255,255,255,0.012))]";
 
@@ -141,10 +147,7 @@ function ProjectGraphic({ visual }: { visual: (typeof caseStudies)[number]["visu
             className="h-auto w-full"
           />
         </div>
-        <div className="absolute inset-x-4 top-10">
-          <div className="text-5xl font-bold tracking-tighter text-[#c9bb82]">n8n</div>
-          <div className="mt-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-zinc-300">Knowledge, captured.</div>
-        </div>
+        <GraphicTitle title="n8n" subtitle="Knowledge, captured." />
         <div className="absolute bottom-3 left-4 rounded-full border border-white/10 bg-black/75 px-2.5 py-1 text-[9px] text-zinc-300">Human review required</div>
       </div>
     );
@@ -153,13 +156,8 @@ function ProjectGraphic({ visual }: { visual: (typeof caseStudies)[number]["visu
   if (visual === "dashboard") {
     return (
       <div className={shell}>
-        <div className="absolute left-4 right-4 top-4 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-500">
-            <BarChart3 className="h-4 w-4 text-zinc-300" /> Portfolio health
-          </div>
-          <span className="h-2 w-2 rounded-full bg-zinc-500" />
-        </div>
-        <div className="absolute inset-x-4 bottom-4 top-12 rounded-xl border border-white/10 bg-black/20 p-3">
+        <GraphicTitle title="CS Ops" subtitle="Portfolio health, in focus." />
+        <div className="absolute inset-x-4 bottom-4 top-12 opacity-20 rounded-xl border border-white/10 bg-black/20 p-3">
           <div className="mb-3 grid grid-cols-3 gap-2">
             {["NRR", "WAU", "NPS"].map((label, i) => (
               <div key={label} className="rounded-lg border border-white/10 bg-white/[0.025] p-2">
@@ -183,10 +181,8 @@ function ProjectGraphic({ visual }: { visual: (typeof caseStudies)[number]["visu
   if (visual === "risk") {
     return (
       <div className={shell}>
-        <div className="absolute left-4 top-4 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-500">
-          <Gauge className="h-4 w-4 text-zinc-300" /> Risk intelligence
-        </div>
-        <div className="absolute left-1/2 top-[58%] h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10">
+        <GraphicTitle title="Churn" subtitle="Risk, made visible." />
+        <div className="absolute left-1/2 top-[58%] opacity-20 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10">
           <div className="absolute inset-3 rounded-full border border-white/10" />
           <div className="absolute inset-7 rounded-full border border-white/10" />
           <div className="absolute left-1/2 top-1/2 h-px w-[72px] origin-left -rotate-[28deg] bg-zinc-400" />
@@ -203,10 +199,8 @@ function ProjectGraphic({ visual }: { visual: (typeof caseStudies)[number]["visu
 
   return (
     <div className={shell}>
-      <div className="absolute left-4 top-4 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-500">
-        <ReceiptText className="h-4 w-4 text-zinc-300" /> Payment cycle
-      </div>
-      <div className="absolute left-4 right-4 top-12 rounded-xl border border-white/10 bg-black/20 p-3">
+      <GraphicTitle title="RevOps" subtitle="Payments, moving faster." />
+      <div className="absolute left-4 right-4 top-12 opacity-20 rounded-xl border border-white/10 bg-black/20 p-3">
         <div className="flex items-center justify-between">
           <div>
             <div className="text-[9px] uppercase tracking-widest text-zinc-600">Cycle time</div>
