@@ -13,7 +13,7 @@ import { Reveal } from "@/components/reveal";
 const caseStudies = [
   {
     visual: "dashboard" as const,
-    title: "CS Operations Dashboard",
+    title: "CS Org dashboard",
     category: "Analytics & Visibility",
     description:
       "Built a live Customer Success dashboard tracking MAU/WAU, product engagement, and NPS across the full portfolio.",
@@ -24,7 +24,7 @@ const caseStudies = [
   },
   {
     visual: "risk" as const,
-    title: "Churn Risk Calculator",
+    title: "AI Churn Risk Calculator",
     category: "Retention & Prevention",
     description:
       "Designed an AI-assisted churn-risk scoring system using 15+ checkpoints to identify at-risk accounts before notice.",
@@ -46,7 +46,7 @@ const caseStudies = [
   },
   {
     visual: "revops" as const,
-    title: "RevOps Payment Optimization",
+    title: "RevOps, Time-to-pay project",
     category: "Revenue Operations",
     description:
       "Structured RevOps follow-up workflows and billing processes to accelerate payment collection cycles.",
@@ -124,7 +124,7 @@ export function CaseStudiesSection() {
 
 function GraphicTitle({ title, subtitle }: { title: string; subtitle: string }) {
   return (
-    <div className="absolute inset-x-4 top-10 z-10">
+    <div className="relative z-10 shrink-0">
       <div className="text-5xl lg:text-[40px] xl:text-5xl font-bold tracking-tighter text-[#c9bb82]">{title}</div>
       <div className="mt-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-zinc-300">{subtitle}</div>
     </div>
@@ -132,92 +132,53 @@ function GraphicTitle({ title, subtitle }: { title: string; subtitle: string }) 
 }
 
 function ProjectGraphic({ visual }: { visual: (typeof caseStudies)[number]["visual"] }) {
-  const shell = "relative h-full w-full overflow-hidden rounded-[1.1rem] border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.055),rgba(255,255,255,0.012))]";
+  const labels = {
+    dashboard: ["CS Org", "Portfolio health, in focus."],
+    risk: ["Churn", "Risk, made visible."],
+    knowledge: ["n8n", "Knowledge, captured."],
+    revops: ["RevOps", "Payments, moving faster."],
+  };
+  const [title, subtitle] = labels[visual];
 
-  if (visual === "knowledge") {
-    return (
-      <div className={shell}>
-        <div className="absolute inset-x-0 bottom-0 opacity-30">
+  return (
+    <div className="relative flex h-full w-full flex-col overflow-hidden rounded-[1.1rem] border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.055),rgba(255,255,255,0.012))] px-4 pb-4 pt-10">
+      <GraphicTitle title={title} subtitle={subtitle} />
+      <div aria-hidden="true" className="relative mt-4 min-h-0 flex-1 border-t border-white/5 pt-3 text-zinc-500">
+        {visual === "dashboard" && (
+          <div className="flex h-full items-end gap-2 border-b border-white/10 opacity-40">
+            {[38, 52, 45, 68, 61, 78, 72].map((height, index) => (
+              <div key={index} className="flex-1 rounded-t-sm bg-zinc-500" style={{ height: `${height}%` }} />
+            ))}
+          </div>
+        )}
+        {visual === "risk" && (
+          <div className="flex h-full items-center justify-center gap-5 opacity-40">
+            <div className="relative aspect-square h-full max-h-20 rounded-full border border-zinc-500">
+              <div className="absolute inset-[22%] rounded-full border border-zinc-500" />
+              <div className="absolute left-1/2 top-1/2 h-px w-[43%] origin-left -rotate-[28deg] bg-zinc-300" />
+            </div>
+            <AlertTriangle className="h-6 w-6 shrink-0" />
+          </div>
+        )}
+        {visual === "knowledge" && (
           <Image
             src="/images/knowledge-base/n8n-workflow.png"
             alt=""
             width={2048}
             height={914}
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-            className="h-auto w-full"
+            className="h-full w-full object-contain opacity-30"
           />
-        </div>
-        <GraphicTitle title="n8n" subtitle="Knowledge, captured." />
-        <div className="absolute bottom-3 left-4 rounded-full border border-white/10 bg-black/75 px-2.5 py-1 text-[9px] text-zinc-300">Human review required</div>
-      </div>
-    );
-  }
-
-  if (visual === "dashboard") {
-    return (
-      <div className={shell}>
-        <GraphicTitle title="CS Ops" subtitle="Portfolio health, in focus." />
-        <div className="absolute inset-x-4 bottom-4 top-12 opacity-20 rounded-xl border border-white/10 bg-black/20 p-3">
-          <div className="mb-3 grid grid-cols-3 gap-2">
-            {["NRR", "WAU", "NPS"].map((label, i) => (
-              <div key={label} className="rounded-lg border border-white/10 bg-white/[0.025] p-2">
-                <div className="text-[9px] text-zinc-600">{label}</div>
-                <div className="mt-1 h-1.5 rounded-full bg-zinc-800">
-                  <div className="h-full rounded-full bg-zinc-400" style={{ width: `${[72, 58, 81][i]}%` }} />
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="flex h-16 items-end gap-2 border-b border-l border-white/10 pl-2 pb-1">
-            {[38, 52, 45, 68, 61, 78, 72].map((height, i) => (
-              <div key={i} className="flex-1 rounded-t-sm bg-zinc-500/70" style={{ height: `${height}%` }} />
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (visual === "risk") {
-    return (
-      <div className={shell}>
-        <GraphicTitle title="Churn" subtitle="Risk, made visible." />
-        <div className="absolute left-1/2 top-[58%] opacity-20 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10">
-          <div className="absolute inset-3 rounded-full border border-white/10" />
-          <div className="absolute inset-7 rounded-full border border-white/10" />
-          <div className="absolute left-1/2 top-1/2 h-px w-[72px] origin-left -rotate-[28deg] bg-zinc-400" />
-          <div className="absolute left-[71%] top-[32%] h-3 w-3 rounded-full border border-zinc-300 bg-zinc-950 shadow-[0_0_0_5px_rgba(255,255,255,0.05)]" />
-          <AlertTriangle className="absolute -right-6 bottom-1 h-6 w-6 text-zinc-400" />
-        </div>
-        <div className="absolute bottom-4 left-4 right-4 grid grid-cols-3 gap-2 text-center text-[9px] text-zinc-600">
-          <span>Signals</span><span>Score</span><span>Action</span>
-        </div>
-      </div>
-    );
-  }
-
-
-  return (
-    <div className={shell}>
-      <GraphicTitle title="RevOps" subtitle="Payments, moving faster." />
-      <div className="absolute left-4 right-4 top-12 opacity-20 rounded-xl border border-white/10 bg-black/20 p-3">
-        <div className="flex items-center justify-between">
-          <div>
-            <div className="text-[9px] uppercase tracking-widest text-zinc-600">Cycle time</div>
-            <div className="mt-1 text-xl font-semibold text-zinc-200">60 → 30</div>
-          </div>
-          <Clock3 className="h-7 w-7 text-zinc-500" />
-        </div>
-        <div className="mt-4 space-y-2">
-          {["Invoice sent", "Follow-up", "Payment"].map((label, i) => (
-            <div key={label} className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full border border-zinc-500 bg-zinc-950" />
-              <div className="h-px flex-1 bg-zinc-800" />
-              <span className="text-[9px] text-zinc-600">{label}</span>
-              {i < 2 ? <ArrowUpRight className="h-3 w-3 text-zinc-600" /> : null}
+        )}
+        {visual === "revops" && (
+          <div className="flex h-full items-center justify-between gap-3 opacity-40">
+            <div>
+              <div className="text-[9px] uppercase tracking-widest">Time to pay</div>
+              <div className="mt-1 whitespace-nowrap text-2xl font-semibold">60 → 30</div>
             </div>
-          ))}
-        </div>
+            <Clock3 className="h-7 w-7 shrink-0" />
+          </div>
+        )}
       </div>
     </div>
   );
@@ -226,7 +187,7 @@ function ProjectGraphic({ visual }: { visual: (typeof caseStudies)[number]["visu
 function StudyCard({ study }: { study: (typeof caseStudies)[number] }) {
   return (
     <>
-      <div className="relative mb-4 aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-white/5 bg-zinc-900 p-4 shadow-2xl md:mb-6">
+      <div className="relative mb-4 w-full aspect-[4/3] min-h-[260px] overflow-hidden rounded-[1.5rem] border border-white/5 bg-zinc-900 p-4 shadow-2xl md:mb-6">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_18%,rgba(255,255,255,0.055),transparent_35%),linear-gradient(135deg,rgba(39,39,42,0.94),rgba(9,9,11,0.99))]" />
         <div className="relative h-full transition-transform duration-500 group-hover:scale-[1.015]">
           <ProjectGraphic visual={study.visual} />
@@ -237,7 +198,7 @@ function StudyCard({ study }: { study: (typeof caseStudies)[number] }) {
           </div>
         ) : null}
         {study.href ? (
-          <div className="pointer-events-none absolute right-6 top-16 flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-black/50 text-zinc-300 opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100">
+          <div className="pointer-events-none absolute bottom-6 right-6 flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-black/50 text-zinc-300 opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100">
             <ArrowUpRight className="h-4 w-4" />
           </div>
         ) : null}
