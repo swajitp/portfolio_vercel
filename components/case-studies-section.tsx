@@ -125,7 +125,7 @@ export function CaseStudiesSection() {
 function GraphicTitle({ title, subtitle }: { title: string; subtitle: string }) {
   return (
     <div className="relative z-10 shrink-0">
-      <div className="text-5xl lg:text-[40px] xl:text-5xl font-bold tracking-tighter text-[#c9bb82]">{title}</div>
+      <div className={`min-h-[68px] whitespace-pre-line font-bold tracking-tighter text-[#c9bb82] ${title === "n8n" ? "text-5xl leading-[1.4]" : "text-[32px] leading-[1.05] lg:text-[27px] xl:text-[32px]"}`}>{title}</div>
       <div className="mt-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-zinc-300">{subtitle}</div>
     </div>
   );
@@ -133,10 +133,10 @@ function GraphicTitle({ title, subtitle }: { title: string; subtitle: string }) 
 
 function ProjectGraphic({ visual }: { visual: (typeof caseStudies)[number]["visual"] }) {
   const labels = {
-    dashboard: ["CS Org", "Portfolio health, in focus."],
-    risk: ["Churn", "Risk, made visible."],
+    dashboard: ["CS Org\nDashboard", "Portfolio health, in focus."],
+    risk: ["AI Churn Risk\nCalculator", "Risk, made visible."],
     knowledge: ["n8n", "Knowledge, captured."],
-    revops: ["RevOps", "Payments, moving faster."],
+    revops: ["RevOps\nTime-to-Pay", "Payments, moving faster."],
   };
   const [title, subtitle] = labels[visual];
 
