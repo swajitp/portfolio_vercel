@@ -11,7 +11,6 @@ interface ExperienceItem {
   companyUrl: string;
   detailUrl?: string;
   period: string;
-  focus?: string;
   roles: {
     role: string;
     period?: string;
@@ -37,25 +36,14 @@ const experiences: ExperienceItem[] = [
     company: "Wooqer",
     companyUrl: "https://www.wooqer.com/",
     detailUrl: "/wooqer-experience",
-    period: "2022 - 2025",
-    focus: "Customer Success • Operations • Systems • Analytics",
+    period: "2022–2025",
     roles: [
       {
-        role: "Customer Success Manager",
-        period: "2024 - 2025",
-        type: "SaaS, B2B Workflow Automation",
-        context: "India / MENA / US",
-        metrics: ["120 accounts", "95% retention", "115% NRR"],
+        role: "Customer Success Manager & Operations | B2B SaaS",
+        metrics: ["120 accounts", "8 CS pods", "95% retention", "115% NRR"],
         highlights: [
-          "Owned a 120-account B2B SaaS portfolio across adoption, customer health, risk, retention, and growth, supported by data-driven lifecycle management and scalable customer success processes.",
-        ],
-      },
-      {
-        role: "Customer Success Operations Lead | Program Manager",
-        period: "2022 - 2024",
-        metrics: ["8 CS pods", "2/3 churn risks identified", "60 → 30 day payment cycle"],
-        highlights: [
-          "Built and scaled customer success systems across 8 CS pods, including customer health models, churn-risk analysis, dashboards, lifecycle playbooks, and workflow automation.",
+          "Worked across customer success and operations, owning a 120-account B2B SaaS portfolio while building the systems behind the customer lifecycle—including customer health and churn-risk models, dashboards, playbooks, and workflow automation.",
+          "Drove adoption, retention, risk visibility, and operational efficiency through data-driven customer success processes and automation across 8 CS pods.",
         ],
       },
     ],
@@ -171,10 +159,6 @@ export function ExperienceSection() {
                     <span className="font-mono text-xs text-zinc-500">{exp.period}</span>
                   </div>
 
-                  {exp.focus ? (
-                    <p className="mb-5 text-sm text-zinc-400">{exp.focus}</p>
-                  ) : null}
-
                   <div className="relative space-y-7">
                     {exp.roles.length > 1 ? (
                       <span className="absolute bottom-8 left-1.5 top-3 w-px bg-white/10 transition-colors group-hover:bg-white/20" />
@@ -182,9 +166,9 @@ export function ExperienceSection() {
                     {exp.roles.map((role, roleIndex) => (
                       <div
                         key={`${role.role}-${role.period}`}
-                        className={exp.roles.length > 1 ? "relative pl-8" : "relative"}
+                        className={exp.roles.length > 1 || exp.company === "Wooqer" ? "relative pl-8" : "relative"}
                       >
-                        {exp.roles.length > 1 ? (
+                        {exp.roles.length > 1 || exp.company === "Wooqer" ? (
                           <span className="absolute left-0 top-2 h-3 w-3 rounded-full border border-white/15 bg-zinc-700 ring-4 ring-zinc-950 transition-colors group-hover:border-white/30 group-hover:bg-white" />
                         ) : null}
                         <div className="mb-2 flex flex-col justify-between gap-1 sm:flex-row sm:items-baseline">
