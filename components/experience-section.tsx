@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import { ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -17,7 +18,7 @@ interface ExperienceItem {
     type?: string;
     context?: string;
     metrics: string[];
-    highlights: string[];
+    highlights: ReactNode[];
   }[];
 }
 
@@ -39,11 +40,13 @@ const experiences: ExperienceItem[] = [
     period: "2022–2025",
     roles: [
       {
-        role: "Customer Success Manager & Operations | B2B SaaS",
-        metrics: ["120 accounts", "8 CS pods", "95% retention", "115% NRR"],
+        role: "Customer Success Operations Manager | Program Manager",
+        metrics: ["$2M ARR", "8 CS Pods", "Hubspot", "Gainsight"],
         highlights: [
-          "Worked across customer success and operations, owning a 120-account B2B SaaS portfolio while building the systems behind the customer lifecycle—including customer health and churn-risk models, dashboards, playbooks, and workflow automation.",
-          "Drove adoption, retention, risk visibility, and operational efficiency through data-driven customer success processes and automation across 8 CS pods.",
+          <>Owned Customer Success Operations across <strong className="font-semibold text-zinc-200">8 CS pods</strong> supporting a <strong className="font-semibold text-zinc-200">~$2M ARR</strong> B2B SaaS portfolio, building the systems, workflows, dashboards, and playbooks behind onboarding, adoption, retention, and expansion.</>,
+          <>Administered <strong className="font-semibold text-zinc-200">Gainsight CS</strong> across <strong className="font-semibold text-zinc-200">Rules Engine</strong>, <strong className="font-semibold text-zinc-200">CTAs/Cockpit</strong>, <strong className="font-semibold text-zinc-200">customer health scorecards</strong>, dashboards, and reporting; later migrated CS operations workflows and automation to <strong className="font-semibold text-zinc-200">HubSpot</strong>.</>,
+          <>Built an <strong className="font-semibold text-zinc-200">AI-assisted churn-risk model</strong> combining weighted customer usage signals into a unified health score, identifying <strong className="font-semibold text-zinc-200">2 of 3 churn risks</strong> before formal notice.</>,
+          <>Built automated expansion workflows across <strong className="font-semibold text-zinc-200">~100–120 accounts</strong> and owned <strong className="font-semibold text-zinc-200">Gainsight–HubSpot</strong> field mapping, execution monitoring, troubleshooting, and workflow reliability.</>,
         ],
       },
     ],

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ExternalLink, Star } from "lucide-react";
+import { ExternalLink, Linkedin, Star } from "lucide-react";
 import { SectionEyebrow } from "@/components/section-eyebrow";
 import { Reveal } from "@/components/reveal";
 
@@ -36,7 +36,20 @@ export function TestimonialsSection() {
       <Reveal>
         <div className="mb-12">
           <div>
-            <SectionEyebrow>TESTIMONIALS</SectionEyebrow>
+            <a
+              href="https://www.linkedin.com/in/swajit/details/recommendations/?"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Read Swajit's testimonials on LinkedIn (opens in a new tab)"
+              title="Read recommendations on LinkedIn"
+              className="group inline-flex rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+            >
+              <SectionEyebrow className="items-center gap-2 transition-colors group-hover:border-white/20 group-hover:bg-zinc-800 group-hover:text-white">
+                <Linkedin className="h-4 w-4 flex-none" aria-hidden="true" />
+                TESTIMONIALS
+                <ExternalLink className="h-3.5 w-3.5 flex-none" aria-hidden="true" />
+              </SectionEyebrow>
+            </a>
             <h2 className="mt-6 text-4xl font-bold tracking-tight text-white md:text-5xl">
               Feedback from the team
             </h2>
