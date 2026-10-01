@@ -1,92 +1,286 @@
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
-import Link from "next/link";
-import { ArrowDown, ArrowLeft, FileText, ShieldCheck } from "lucide-react";
-import { Flow } from "@/components/knowledge-base/flow";
 import { WorkflowImage } from "@/components/knowledge-base/workflow-image";
 import styles from "@/components/knowledge-base/knowledge-base.module.css";
 
 export const metadata: Metadata = {
   title: "n8n · AI Knowledge Base Automation",
-  description: "An independent n8n prototype that turns resolved support cases into knowledge drafts, with human review before publication.",
+  description:
+    "Turning resolved support cases into reusable customer knowledge — automatically, with human review before publication.",
 };
 
-function Section({ number, label, title, children, id }: { number: string; label: string; title: string; children: ReactNode; id?: string }) {
-  return <section id={id} className={styles.section} aria-labelledby={`heading-${number}`}>
-    <div className={styles.heading}><div className={styles.eyebrow}>{number} · {label}</div><h2 id={`heading-${number}`}>{title}</h2></div>
-    {children}
-  </section>;
-}
-
-const decisions = [
-  { question: "Is this worth saving?", body: "Keep reusable solutions. Skip one-off requests and billing issues.", outcomes: [["KB candidate", "Continue"], ["Not reusable", "Stop"]] },
-  { question: "Do we already have it?", body: "Look for an existing answer before adding another article.", outcomes: [["Already documented", "Stop"], ["Gap found", "Continue"]] },
-  { question: "Can we write it safely?", body: "Use the resolved case as evidence. Never fill gaps by guessing.", outcomes: [["Enough info", "Draft it"], ["Missing info", "Ask a human"]] },
-];
-
 export default function KnowledgeBasePage() {
-  // Keep the workflow directly after the hero so visitors see the prototype first.
-  return <main className={styles.page}><div className={styles.container}>
-    <Link href="/#case-studies" className={styles.back}><ArrowLeft size={15} aria-hidden="true" /> Back to portfolio</Link>
-    <header className={styles.hero}>
-      <div className={styles.eyebrow}>CUSTOMER SUCCESS OPERATIONS · AI AUTOMATION</div>
-      <h1><span className={styles.titleAccent}>n8n</span> · AI Knowledge<br className={styles.desktopBreak} /> Base Automation</h1>
-      <p className={styles.subtitle}>Turning resolved support cases into reusable customer knowledge — without adding a single task to the support agent&apos;s plate.</p>
-      <ul className={styles.tags} aria-label="Tools and disciplines">{["n8n", "Zoho Desk", "AI", "Knowledge Management", "Customer Success Operations"].map(tag => <li key={tag}>{tag}</li>)}</ul>
-      <a href="#workflow" className={styles.cta}>See how it works <ArrowDown size={16} aria-hidden="true" /></a>
-      <p className={styles.context}>I previously managed a manual version of this process at Wooqer. I rebuilt it independently in n8n to explore how AI could remove the administrative overhead. This is a personal prototype, not a Wooqer deployment.</p>
-    </header>
-
-    <Section number="01" label="THE ACTUAL WORKFLOW" title="The automation behind the idea." id="workflow">
-      <WorkflowImage />
-      <p className={styles.caption}>Here&apos;s what that decision-making looks like as an actual automation — each box is a step the system takes on its own.</p>
-      <details className={styles.details}><summary>A note on the prototype</summary><p>The screenshot shows qualification, duplicate checking, drafting, tracking and reviewer notification. The information-sufficiency decision is part of the intended drafting logic; this image alone does not verify that safeguard.</p></details>
-    </Section>
-
-    <Section number="02" label="THE PROBLEM" title="Solve the problem. Lose the knowledge." id="the-problem">
-      <div className={styles.comparison}>
-        <article className={styles.card}><div className={styles.eyebrow}>BEFORE · MANUAL, EASY TO SKIP</div>
-          <Flow label="Manual knowledge capture" steps={["Customer solved", "Agent remembers to document", "Checks for duplicates", "Writes article", "Updates tracker", "Sends for review"].map(label => ({ label }))} />
-          <p>Every step depended on the agent remembering, on top of their actual job.</p>
-        </article>
-        <article className={`${styles.card} ${styles.accentCard}`}><div className={styles.eyebrow}>AFTER · AUTOMATIC</div>
-          <Flow label="Automated knowledge capture" steps={[{ label: "Customer solved" }, { label: "Ticket closes", note: "Agent’s job ends" }, { label: "Automation takes over", note: "Draft → human review", human: true }]} />
-          <p>The agent&apos;s job ends the moment the ticket closes. Everything after is invisible to them.</p>
-        </article>
-      </div>
-      <div className={styles.callout}>Support agents solve customers. The system captures the knowledge.</div>
-    </Section>
-
-    <Section number="03" label="THREE DECISIONS" title="Three decisions, one ticket.">
-      <div className={styles.decisions}>{decisions.map((decision, index) => <article key={decision.question} className={styles.card}>
-        <span className={styles.decisionNumber}>0{index + 1}</span><h3>{decision.question}</h3><p>{decision.body}</p>
-        <div className={styles.outcomes}>{decision.outcomes.map(([label, outcome]) => <Flow key={label} label={`${label}: ${outcome}`} steps={[{ label }, { label: outcome, human: outcome === "Ask a human" }]} />)}</div>
-      </article>)}</div>
-    </Section>
-
-    <Section number="04" label="SEE IT WORK" title="One solved case. A reusable answer.">
-      <p className={styles.exampleNote}>Based on a real support scenario. AI decisions and draft preview illustrate the prototype’s intended response.</p>
-      <div className={styles.example}>
-        <div className={styles.beats}>
-          <div><span className={styles.eyebrow}>1 · CUSTOMER ASKED</span><blockquote>“How can I mass assign a process to multiple stores?”</blockquote></div>
-          <div><span className={styles.eyebrow}>2 · AGENT RESOLVED IT</span><p>Download the bulk-upload Excel template, enter the users’ details against the process name, then upload it to complete the mass assignment.</p></div>
-          <div><span className={styles.eyebrow}>3 · AI’S READ</span><Flow label="Illustrative AI decisions" steps={[{ label: "KB candidate: Yes" }, { label: "No existing article found" }, { label: "Drafting now" }]} /></div>
+  return (
+    <main className={styles.page}>
+      <div className={styles.wrap}>
+        <nav>
+          <span className={styles.name}>
+            Swajit Patwari<span style={{ color: "#c9bb82" }}>.</span>
+          </span>
+          <a href="/#case-studies">Back to portfolio</a>
+        </nav>
+        <header className={styles.hero}>
+          <div className={styles.eyebrow}>
+            Customer Success Operations · AI Automation
+          </div>
+          <h1>
+            <span className={styles.accent}>n8n</span>{" "}
+            <span className={styles.dot}>·</span> AI Knowledge
+            <br />
+            Base Automation
+          </h1>
+          <p>
+            Turning resolved support cases into reusable customer knowledge —
+            automatically.
+          </p>
+          <ul className={styles.tags} aria-label="Tools and disciplines">
+            <li>n8n</li>
+            <li>Zoho Desk</li>
+            <li>AI</li>
+            <li>Knowledge Management</li>
+            <li>Customer Success Operations</li>
+          </ul>
+        </header>
+        <div>
+          <section id="automation">
+            <div className={styles.sectiontop}>
+              <div>
+                <div className={styles.eyebrow}>01 · The automation</div>
+                <h2>
+                  From closed ticket to
+                  <br />
+                  review-ready knowledge.
+                </h2>
+              </div>
+              <span className={styles.meta}>ONE WORKFLOW / 12 STEPS</span>
+            </div>
+            <WorkflowImage />
+            <div className={styles.flow}>
+              <span>Ticket closes</span>
+              <b>→</b>
+              <span>Qualify</span>
+              <b>→</b>
+              <span>Check existing KB</span>
+              <b>→</b>
+              <span>Draft</span>
+              <b>→</b>
+              <span>Human review</span>
+            </div>
+            <p className={styles.description}>
+              The workflow identifies reusable knowledge, checks whether it
+              already exists, and creates a draft for review.
+            </p>
+            <details>
+              <summary>
+                <span className={styles.code}>&lt;/&gt;</span> Learn the tech
+                behind this workflow{" "}
+                <span className={styles.plus} aria-hidden="true">
+                  +
+                </span>
+              </summary>
+              <ol className={styles.tech}>
+                <li>
+                  <div>
+                    <h3>Trigger</h3>
+                    <small>POST · Webhook</small>
+                  </div>
+                  <p>
+                    Zoho Desk sends a POST request to the n8n webhook when a
+                    ticket closes, passing its ticket ID.
+                  </p>
+                </li>
+                <li>
+                  <div>
+                    <h3>Get ticket details</h3>
+                    <small>GET · Zoho Desk API</small>
+                  </div>
+                  <p>
+                    Use the ticket ID to retrieve the ticket’s metadata from
+                    Zoho Desk.
+                  </p>
+                </li>
+                <li>
+                  <div>
+                    <h3>Get conversation</h3>
+                    <small>GET · Zoho Desk API</small>
+                  </div>
+                  <p>
+                    Retrieve the conversation and resolution history behind the
+                    support case.
+                  </p>
+                </li>
+                <li>
+                  <div>
+                    <h3>Prepare context</h3>
+                    <small>JavaScript · JSON</small>
+                  </div>
+                  <p>
+                    Clean and structure the ticket data into focused context for
+                    the AI.
+                  </p>
+                </li>
+                <li>
+                  <div>
+                    <h3>Identify knowledge</h3>
+                    <small>OpenAI · Structured output</small>
+                  </div>
+                  <p>
+                    Evaluate whether the resolution contains reusable knowledge
+                    and return a structured decision.
+                  </p>
+                </li>
+                <li>
+                  <div>
+                    <h3>Route the decision</h3>
+                    <small>IF</small>
+                  </div>
+                  <p>Useful knowledge → continue. One-off resolution → stop.</p>
+                </li>
+                <li>
+                  <div>
+                    <h3>Search existing KB</h3>
+                    <small>GET · API</small>
+                  </div>
+                  <p>
+                    Search the knowledge base for articles related to the
+                    identified solution.
+                  </p>
+                </li>
+                <li>
+                  <div>
+                    <h3>Check for duplicates</h3>
+                    <small>OpenAI · Semantic comparison</small>
+                  </div>
+                  <p>
+                    Compare meaning, not just keywords, to check whether the
+                    solution is already documented.
+                  </p>
+                </li>
+                <li>
+                  <div>
+                    <h3>Route again</h3>
+                    <small>IF</small>
+                  </div>
+                  <p>
+                    Already documented → stop. A knowledge gap → continue to
+                    drafting.
+                  </p>
+                </li>
+                <li>
+                  <div>
+                    <h3>Generate the draft</h3>
+                    <small>OpenAI</small>
+                  </div>
+                  <p>
+                    Turn the resolved case into a clear knowledge-base article
+                    draft.
+                  </p>
+                </li>
+                <li>
+                  <div>
+                    <h3>Log for review</h3>
+                    <small>Google Sheets · Append</small>
+                  </div>
+                  <p>
+                    Append the draft and ticket reference to the knowledge
+                    tracker.
+                  </p>
+                </li>
+                <li>
+                  <div>
+                    <h3>Notify the reviewer</h3>
+                    <small>Gmail</small>
+                  </div>
+                  <p>
+                    Email the reviewer so they can check the draft before
+                    publication.
+                  </p>
+                </li>
+              </ol>
+            </details>
+          </section>
+          <section>
+            <div className={styles.eyebrow}>02 · The business view</div>
+            <h2>Your team solves it. The system remembers.</h2>
+            <div className={styles.business}>
+              <article className={styles.card}>
+                <span className={styles.num}>01 / RESOLVE</span>
+                <span className={styles.symbol} aria-hidden="true">
+                  ✓
+                </span>
+                <h3>Ticket resolved</h3>
+                <p>The agent closes the case. Knowledge capture begins.</p>
+              </article>
+              <article className={styles.card}>
+                <span className={styles.num}>02 / QUALIFY</span>
+                <span className={styles.symbol} aria-hidden="true">
+                  ◇
+                </span>
+                <h3>Worth documenting?</h3>
+                <p>Keep reusable solutions. Skip one-off requests.</p>
+              </article>
+              <article className={styles.card}>
+                <span className={styles.num}>03 / CHECK</span>
+                <span className={styles.symbol} aria-hidden="true">
+                  ≍
+                </span>
+                <h3>Already documented?</h3>
+                <p>Find the gap before creating another article.</p>
+              </article>
+              <article className={styles.card}>
+                <span className={styles.num}>04 / CREATE</span>
+                <span className={styles.symbol} aria-hidden="true">
+                  ≡
+                </span>
+                <h3>Draft the answer</h3>
+                <p>Turn the resolution into a useful first draft.</p>
+              </article>
+              <article className={styles.card}>
+                <span className={styles.num}>05 / APPROVE</span>
+                <span className={styles.symbol} aria-hidden="true">
+                  ◎
+                </span>
+                <h3>Human review</h3>
+                <p>A person checks the answer before it goes live.</p>
+              </article>
+            </div>
+            <p className={styles.review}>
+              <span aria-hidden="true">◇</span> Human approval required before
+              publishing.
+            </p>
+          </section>
+          <section>
+            <div className={styles.comparison}>
+              <article>
+                <div className={styles.eyebrow}>Before · Manual</div>
+                <h3>Solved. Then forgotten.</h3>
+                <p>
+                  Agents remember, check, write, track, and send for review.
+                </p>
+              </article>
+              <article>
+                <div className={`${styles.eyebrow} ${styles.after}`}>
+                  After · Automated
+                </div>
+                <h3>Closed. Then captured.</h3>
+                <p>
+                  The workflow prepares the draft. A human makes the final call.
+                </p>
+              </article>
+            </div>
+          </section>
+          <div className={styles.closing}>
+            <h2>
+              Solve once.
+              <br />
+              <span>Reuse the knowledge.</span>
+            </h2>
+          </div>
         </div>
-        <article className={`${styles.card} ${styles.draft}`}>
-          <div className={styles.draftTop}><FileText size={22} aria-hidden="true" /><span className={styles.pill}>DRAFT · NOT PUBLISHED</span></div>
-          <span className={styles.eyebrow}>4 · RESULTING DRAFT PREVIEW</span>
-          <h3>How to mass assign a process to multiple stores</h3>
-          <p>Use bulk upload to assign a process to multiple users at once. Download the Excel template, fill in the users’ details against the process name, and upload the completed file to make the assignments.</p>
-          <div className={styles.review}><ShieldCheck size={20} aria-hidden="true" /><span>Human review required<br /><small>Check the instructions before publishing.</small></span></div>
-        </article>
+        <footer>
+          <span>Swajit Patwari</span>
+          <span>Customer Success Operations · Selected work</span>
+        </footer>
       </div>
-    </Section>
-
-    <Section number="05" label="GOVERNANCE" title="Human review stays the gate.">
-      <Flow label="Publication requires human approval" steps={[{ label: "Resolved case" }, { label: "AI qualifies" }, { label: "AI drafts" }, { label: "Human reviews", note: "Required approval", human: true }, { label: "Published", note: "Only after approval", human: true }]} />
-      <p className={styles.caption}>The system never publishes on its own. It only removes the busywork before a human decision.</p>
-    </Section>
-
-    <footer className={styles.close}><h2>Every solved customer problem<br />can make the next one easier.</h2><p>Instead of relying on agents to remember, knowledge capture becomes an automatic side effect of solving the ticket.</p><small>Manual process based on prior Customer Success Operations experience. Automation built independently as an applied concept.</small></footer>
-  </div></main>;
+    </main>
+  );
 }
