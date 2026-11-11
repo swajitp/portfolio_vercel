@@ -11,12 +11,13 @@ interface ExperienceItem {
   company: string;
   companyUrl: string;
   detailUrl?: string;
-  period: string;
+  period?: string;
   roles: {
     role: string;
     period?: string;
     type?: string;
     context?: string;
+    summary?: string;
     metrics: string[];
     highlights: ReactNode[];
   }[];
@@ -33,6 +34,24 @@ const experienceTags = [
 ];
 
 const experiences: ExperienceItem[] = [
+  {
+    company: "Vancity",
+    companyUrl: "https://www.vancity.com/",
+    roles: [
+      {
+        role: "Finance Process Automation & AI",
+        type: "Intern",
+        summary:
+          "Supporting Vancity’s Finance team in improving workflows through automation and responsible AI, with a focus on reducing manual effort and enhancing data quality.",
+        metrics: [],
+        highlights: [
+          <><strong className="font-semibold text-zinc-200">Process improvement:</strong> Map workflows, identify pain points, and document opportunities for automation.</>,
+          <><strong className="font-semibold text-zinc-200">Automation & AI:</strong> Help develop, test, and refine automation solutions and AI-enabled tools.</>,
+          <><strong className="font-semibold text-zinc-200">Cross-team collaboration:</strong> Work with Finance professionals and the AI Centre of Excellence to evaluate pilots and communicate recommendations.</>,
+        ],
+      },
+    ],
+  },
   {
     company: "Wooqer",
     companyUrl: "https://www.wooqer.com/",
@@ -159,7 +178,9 @@ export function ExperienceSection() {
                       {exp.company}
                       <ExternalLink className="h-4 w-4 text-zinc-500" />
                     </a>
-                    <span className="font-mono text-xs text-zinc-500">{exp.period}</span>
+                    {exp.period ? (
+                      <span className="font-mono text-xs text-zinc-500">{exp.period}</span>
+                    ) : null}
                   </div>
 
                   <div className="relative space-y-7">
@@ -182,12 +203,18 @@ export function ExperienceSection() {
                             </span>
                           ) : null}
                         </div>
-                        {role.type && role.context ? (
+                        {role.type ? (
                           <p className="mb-4 text-sm text-zinc-400">
-                            {role.type} · {role.context}
+                            {role.type}{role.context ? ` · ${role.context}` : ""}
+                          </p>
+                        ) : null}
+                        {role.summary ? (
+                          <p className="mb-5 text-sm leading-7 text-zinc-300">
+                            {role.summary}
                           </p>
                         ) : null}
 
+                        {role.metrics.length > 0 ? (
                         <div className="mb-5 flex flex-wrap gap-2">
                           {role.metrics.map((metric) => (
                             <Badge key={metric} variant="metric">
@@ -195,6 +222,7 @@ export function ExperienceSection() {
                             </Badge>
                           ))}
                         </div>
+                        ) : null}
 
                         <ul className="space-y-3">
                           {role.highlights.map((highlight, i) => (
